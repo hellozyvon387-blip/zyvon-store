@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="ZYVON — Modern streetwear built for your edge.">
 
   <title>ZYVON — Modern Streetwear</title>
-
-  <meta
-    name="description"
-    content="ZYVON — modern streetwear built for bold self-expression. Discover oversized tees, hoodies, essentials and accessories designed for everyday style."
-  >
-
-  <meta name="theme-color" content="#111111">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,1283 +16,44 @@
     rel="stylesheet"
   >
 
-  <style>
-    /* =========================
-       RESET
-    ========================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: #fff;
-      color: #111;
-      line-height: 1.5;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    :root {
-      --black: #111;
-      --dark: #181818;
-      --gray: #777;
-      --light-gray: #f4f4f4;
-      --border: #dedede;
-      --white: #fff;
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 76px;
-      background: rgba(255,255,255,.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #e8e8e8;
-      z-index: 1000;
-    }
-
-    .nav {
-      width: min(1400px, 92%);
-      height: 100%;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-
-    .nav-links a {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      transition: opacity .2s;
-    }
-
-    .nav-links a:hover {
-      opacity: .5;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-action {
-      border: 0;
-      background: transparent;
-      padding: 10px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .cart-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      margin-left: 4px;
-      background: #111;
-      color: #fff;
-      border-radius: 50%;
-      font-size: 9px;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 23px;
-    }
-
-    .mobile-menu {
-      display: none;
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-      margin-top: 76px;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.76),
-          rgba(0,0,0,.10)
-        ),
-        url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2200&q=90")
-        center / cover no-repeat;
-      color: #fff;
-    }
-
-    .hero-content {
-      width: min(1400px, 92%);
-      margin: auto;
-      padding: 100px 0 90px;
-    }
-
-    .eyebrow {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2.5px;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(58px, 10vw, 150px);
-      line-height: .84;
-      letter-spacing: -7px;
-      font-weight: 900;
-      max-width: 1100px;
-    }
-
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 30px;
-      margin-top: 45px;
-    }
-
-    .hero-description {
-      max-width: 390px;
-      font-size: 13px;
-      color: #eee;
-    }
-
-    .primary-btn {
-      border: 1px solid #fff;
-      background: #fff;
-      color: #111;
-      padding: 16px 25px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      transition: .25s;
-    }
-
-    .primary-btn:hover {
-      background: transparent;
-      color: #fff;
-    }
-
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
-
-    .section {
-      width: min(1400px, 92%);
-      margin: auto;
-      padding: 120px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 45px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(38px, 6vw, 78px);
-      line-height: .9;
-      letter-spacing: -4px;
-      font-weight: 900;
-    }
-
-    .section-count {
-      color: var(--gray);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-
-    /* =========================
-       PRODUCT GRID
-    ========================= */
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 26px 14px;
-    }
-
-    .product-card {
-      cursor: pointer;
-    }
-
-    .product-image {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
-      background: #f3f3f3;
-    }
-
-    .product-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.04);
-    }
-
-    .product-hover {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px;
-      background: rgba(0,0,0,.86);
-      color: #fff;
-      text-align: center;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      transform: translateY(100%);
-      transition: .3s;
-    }
-
-    .product-card:hover .product-hover {
-      transform: translateY(0);
-    }
-
-    .product-info {
-      padding-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .product-info h3 {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .5px;
-    }
-
-    .product-info p {
-      margin-top: 4px;
-      color: #888;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .product-info strong {
-      white-space: nowrap;
-      font-size: 11px;
-    }
-
-
-    /* =========================
-       FILTERS
-    ========================= */
-
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 45px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .filter-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 12px 18px;
-      white-space: nowrap;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      transition: .2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-
-
-    /* =========================
-       CATEGORIES
-    ========================= */
-
-    .categories {
-      width: min(1400px, 92%);
-      margin: auto;
-      padding-bottom: 120px;
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .category-card {
-      position: relative;
-      min-height: 500px;
-      overflow: hidden;
-      background: #ddd;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .category-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .6s;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .category-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,.65),
-        transparent 65%
-      );
-    }
-
-    .category-content {
-      position: absolute;
-      z-index: 2;
-      bottom: 30px;
-      left: 30px;
-    }
-
-    .category-content h3 {
-      font-size: 35px;
-      line-height: .9;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .category-content span {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-
-    /* =========================
-       EDITORIAL
-    ========================= */
-
-    .editorial {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 700px;
-      background: #f2f2f2;
-    }
-
-    .editorial-image {
-      min-height: 600px;
-    }
-
-    .editorial-image img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .editorial-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10%;
-    }
-
-    .editorial-content h2 {
-      font-size: clamp(45px, 6vw, 85px);
-      line-height: .88;
-      letter-spacing: -4px;
-      font-weight: 900;
-      margin-bottom: 35px;
-    }
-
-    .editorial-content p:not(.eyebrow) {
-      max-width: 450px;
-      margin-bottom: 16px;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .outline-btn {
-      width: fit-content;
-      margin-top: 20px;
-      padding: 15px 22px;
-      background: transparent;
-      border: 1px solid #111;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      transition: .25s;
-    }
-
-    .outline-btn:hover {
-      background: #111;
-      color: #fff;
-    }
-
-
-    /* =========================
-       NEWSLETTER
-    ========================= */
-
-    .newsletter {
-      background: #111;
-      color: #fff;
-      padding: 120px 20px;
-      text-align: center;
-    }
-
-    .newsletter-inner {
-      width: min(700px, 100%);
-      margin: auto;
-    }
-
-    .newsletter h2 {
-      font-size: clamp(45px, 8vw, 95px);
-      line-height: .86;
-      letter-spacing: -5px;
-      font-weight: 900;
-      margin-bottom: 25px;
-    }
-
-    .newsletter-inner > p:not(.eyebrow) {
-      color: #aaa;
-      font-size: 13px;
-      margin-bottom: 35px;
-    }
-
-    #newsletterForm {
-      display: flex;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    #newsletterEmail {
-      flex: 1;
-      min-width: 0;
-      padding: 17px 18px;
-      border: 1px solid #444;
-      background: #1b1b1b;
-      color: #fff;
-      outline: none;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    #newsletterForm button {
-      padding: 0 28px;
-      border: 1px solid #fff;
-      background: #fff;
-      color: #111;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .newsletter small {
-      display: block;
-      margin-top: 15px;
-      color: #666;
-      font-size: 9px;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    .footer {
-      background: #111;
-      color: #fff;
-      padding: 70px 4% 25px;
-      border-top: 1px solid #333;
-    }
-
-    .footer-main {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      max-width: 1400px;
-      margin: auto;
-    }
-
-    .footer-logo {
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -2px;
-    }
-
-    .footer-brand p {
-      margin-top: 10px;
-      color: #777;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .footer-column {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .footer-column h4 {
-      margin-bottom: 8px;
-      font-size: 9px;
-      color: #777;
-      letter-spacing: 1.5px;
-    }
-
-    .footer-column a,
-    .footer-column button {
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .footer-column button {
-      border: 0;
-      background: transparent;
-      color: #fff;
-      text-align: left;
-      padding: 0;
-    }
-
-    .footer-column a:hover,
-    .footer-column button:hover {
-      color: #888;
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 70px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid #292929;
-      display: flex;
-      justify-content: space-between;
-      color: #555;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================= */
-
-    .search-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(255,255,255,.98);
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .search-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .search-container {
-      width: min(900px, 90%);
-      margin: 16vh auto 0;
-    }
-
-    .search-container input {
-      width: 100%;
-      border: 0;
-      border-bottom: 2px solid #111;
-      padding: 20px 0;
-      outline: none;
-      font-size: clamp(30px, 5vw, 60px);
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .search-close {
-      position: absolute;
-      top: 30px;
-      right: 4%;
-      border: 0;
-      background: none;
-      font-size: 35px;
-      font-weight: 300;
-    }
-
-    #searchResults {
-      margin-top: 25px;
-    }
-
-    .search-result {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-      cursor: pointer;
-    }
-
-    .search-result img {
-      width: 65px;
-      height: 75px;
-      object-fit: cover;
-    }
-
-    .search-result h4 {
-      font-size: 11px;
-    }
-
-    .search-result p {
-      margin-top: 4px;
-      color: #777;
-      font-size: 10px;
-    }
-
-    .search-empty {
-      color: #777;
-      font-size: 11px;
-    }
-
-
-    /* =========================
-       PRODUCT MODAL
-    ========================= */
-
-    .product-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 2100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: .25s;
-    }
-
-    .product-modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-    }
-
-    .modal-content {
-      position: relative;
-      z-index: 2;
-      width: min(950px, 92%);
-      max-height: 90vh;
-      overflow: auto;
-      background: #fff;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .modal-image {
-      min-height: 600px;
-      background: #eee;
-    }
-
-    .modal-image img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .modal-info {
-      padding: 55px 45px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .modal-info h2 {
-      font-size: 38px;
-      line-height: .95;
-      letter-spacing: -2px;
-      margin-bottom: 15px;
-    }
-
-    .modal-price {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    .modal-description {
-      color: #666;
-      font-size: 12px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .size-title {
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .sizes {
-      display: flex;
-      gap: 7px;
-      margin-bottom: 25px;
-    }
-
-    .sizes button {
-      width: 43px;
-      height: 43px;
-      border: 1px solid #ddd;
-      background: #fff;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .sizes button.selected {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-
-    .add-cart-btn {
-      width: 100%;
-      padding: 17px;
-      background: #111;
-      color: #fff;
-      border: 0;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .modal-close {
-      position: absolute;
-      z-index: 5;
-      top: 15px;
-      right: 15px;
-      width: 35px;
-      height: 35px;
-      border: 0;
-      background: #fff;
-      border-radius: 50%;
-      font-size: 22px;
-    }
-
-
-    /* =========================
-       CART
-    ========================= */
-
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 2200;
-      visibility: hidden;
-    }
-
-    .cart-overlay.active {
-      visibility: visible;
-    }
-
-    .cart-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.5);
-      opacity: 0;
-      transition: .25s;
-    }
-
-    .cart-overlay.active .cart-backdrop {
-      opacity: 1;
-    }
-
-    .cart-drawer {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: min(450px, 100%);
-      height: 100%;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      transform: translateX(100%);
-      transition: .3s;
-    }
-
-    .cart-overlay.active .cart-drawer {
-      transform: translateX(0);
-    }
-
-    .cart-header {
-      padding: 28px;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-    }
-
-    .cart-header h2 {
-      font-size: 25px;
-      letter-spacing: -1px;
-    }
-
-    .cart-close {
-      border: 0;
-      background: none;
-      font-size: 28px;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 28px;
-    }
-
-    .cart-item {
-      display: flex;
-      gap: 15px;
-      padding: 15px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .cart-item > img {
-      width: 90px;
-      height: 110px;
-      object-fit: cover;
-    }
-
-    .cart-item-info {
-      flex: 1;
-    }
-
-    .cart-item-info h4 {
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .cart-item-info p {
-      margin: 5px 0;
-      color: #888;
-      font-size: 9px;
-    }
-
-    .cart-item-info strong {
-      font-size: 10px;
-    }
-
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .quantity-control button {
-      width: 25px;
-      height: 25px;
-      border: 1px solid #ddd;
-      background: #fff;
-    }
-
-    .quantity-control span {
-      font-size: 10px;
-    }
-
-    .remove-item {
-      margin-top: 10px;
-      border: 0;
-      background: none;
-      color: #888;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    .cart-footer {
-      padding: 25px 28px;
-      border-top: 1px solid #eee;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      padding: 17px;
-      background: #111;
-      color: #fff;
-      border: 0;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .checkout-note {
-      text-align: center;
-      margin-top: 10px;
-      color: #999;
-      font-size: 8px;
-    }
-
-    .empty-cart {
-      text-align: center;
-      padding: 70px 10px;
-    }
-
-    .empty-cart p {
-      margin-bottom: 20px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .empty-cart button {
-      padding: 12px 20px;
-      border: 1px solid #111;
-      background: #fff;
-      font-size: 9px;
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translate(-50%, 100px);
-      background: #111;
-      color: #fff;
-      padding: 13px 20px;
-      z-index: 3000;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      opacity: 0;
-      transition: .3s;
-      pointer-events: none;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      header {
-        height: 65px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .mobile-menu.active {
-        display: flex;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        border-bottom: 1px solid #ddd;
-        flex-direction: column;
-        padding: 25px;
-        gap: 20px;
-      }
-
-      .mobile-menu a {
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1px;
-      }
-
-      .hero {
-        margin-top: 65px;
-        min-height: calc(100vh - 65px);
-      }
-
-      .hero-content {
-        padding: 70px 0 55px;
-      }
-
-      .hero h1 {
-        letter-spacing: -4px;
-      }
-
-      .hero-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 10px;
-      }
-
-      .category-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-card {
-        min-height: 420px;
-      }
-
-      .editorial {
-        grid-template-columns: 1fr;
-      }
-
-      .editorial-image {
-        min-height: 450px;
-      }
-
-      .editorial-content {
-        padding: 70px 8%;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .modal-content {
-        grid-template-columns: 1fr;
-        max-height: 92vh;
-      }
-
-      .modal-image {
-        min-height: 350px;
-      }
-
-      .modal-info {
-        padding: 35px 25px;
-      }
-    }
-
-
-    @media (max-width: 600px) {
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .nav-action {
-        font-size: 9px;
-        padding: 8px 5px;
-      }
-
-      .hero h1 {
-        font-size: clamp(55px, 17vw, 90px);
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .categories {
-        padding-bottom: 80px;
-      }
-
-      .section-head {
-        margin-bottom: 30px;
-      }
-
-      .section-head h2 {
-        letter-spacing: -2px;
-      }
-
-      .newsletter {
-        padding: 90px 20px;
-      }
-
-      .newsletter h2 {
-        letter-spacing: -3px;
-      }
-
-      #newsletterForm {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      #newsletterForm button {
-        height: 50px;
-      }
-
-      #newsletterEmail {
-        height: 50px;
-      }
-
-      .footer {
-        padding-top: 55px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px 20px;
-      }
-
-      .footer-logo {
-        font-size: 35px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .search-container {
-        margin-top: 15vh;
-      }
-
-      .search-close {
-        top: 20px;
-        right: 6%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
-
+  <!-- HEADER -->
   <header>
-    <nav class="nav">
+    <div class="header-inner">
 
       <a href="#" class="logo">ZYVON</a>
 
-      <div class="nav-links">
-        <a href="#new">NEW ARRIVALS</a>
+      <nav class="nav">
+        <a href="#new">NEW</a>
         <a href="#shop">SHOP</a>
-        <a href="#categories">CATEGORIES</a>
-        <a href="#story">OUR STORY</a>
-      </div>
+        <a href="#story">STORY</a>
+      </nav>
 
-      <div class="nav-actions">
+      <div class="header-actions">
 
         <button
-          class="nav-action"
+          class="icon-btn"
           onclick="openSearch()"
           aria-label="Search"
         >
-          SEARCH
+          ⌕
         </button>
 
         <button
-          class="nav-action"
+          class="icon-btn cart-btn"
           onclick="openCart()"
           aria-label="Cart"
         >
-          CART
-          <span class="cart-number" id="headerCartCount">0</span>
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
         </button>
 
         <button
-          class="mobile-menu-btn"
+          class="icon-btn menu-btn"
           onclick="toggleMobileMenu()"
           aria-label="Menu"
         >
@@ -1306,397 +62,404 @@
 
       </div>
 
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#new" onclick="closeMobileMenu()">NEW ARRIVALS</a>
-      <a href="#shop" onclick="closeMobileMenu()">SHOP</a>
-      <a href="#categories" onclick="closeMobileMenu()">CATEGORIES</a>
-      <a href="#story" onclick="closeMobileMenu()">OUR STORY</a>
     </div>
   </header>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
 
-  <section class="hero">
+    <a href="#new" onclick="closeMobileMenu()">
+      NEW ARRIVALS
+    </a>
 
-    <div class="hero-content">
+    <a href="#shop" onclick="closeMobileMenu()">
+      SHOP
+    </a>
 
-      <p class="eyebrow">CONTEMPORARY STREETWEAR / 2026</p>
+    <a href="#categories" onclick="closeMobileMenu()">
+      CATEGORIES
+    </a>
 
-      <h1>WEAR<br>YOUR EDGE.</h1>
+    <a href="#story" onclick="closeMobileMenu()">
+      OUR STORY
+    </a>
 
-      <div class="hero-bottom">
+  </div>
 
-        <p class="hero-description">
-          Modern essentials designed for people who move differently.
-          Clean silhouettes. Bold attitude. No unnecessary noise.
-        </p>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          ZYVON / EST. 2026
+        </div>
+
+        <h1>
+          WEAR<br>
+          YOUR<br>
+          EDGE.
+        </h1>
+
+        <div class="hero-bottom">
+
+          <p class="hero-description">
+            Modern streetwear for people who move differently.
+            Clean silhouettes. Strong attitude. No unnecessary noise.
+          </p>
+
+          <button
+            class="primary-btn"
+            onclick="scrollToShop()"
+          >
+            SHOP COLLECTION →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEW ARRIVALS -->
+    <section id="new">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-small">
+            01 / NEW
+          </div>
+
+          <h2 class="section-title">
+            NEW<br>
+            ARRIVALS.
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div
+        class="product-grid"
+        id="newProducts"
+      ></div>
+
+    </section>
+
+
+    <!-- SHOP -->
+    <section id="shop">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-small">
+            02 / COLLECTION
+          </div>
+
+          <h2 class="section-title">
+            SHOP.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <!-- FILTERS -->
+      <div class="filters">
 
         <button
-          class="primary-btn"
-          onclick="scrollToShop()"
+          class="filter-btn active"
+          onclick="filterProducts('all', this)"
         >
-          SHOP THE COLLECTION
+          ALL
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProducts('tees', this)"
+        >
+          TEES
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProducts('oversized', this)"
+        >
+          OVERSIZED
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProducts('hoodies', this)"
+        >
+          HOODIES
+        </button>
+
+        <button
+          class="filter-btn"
+          onclick="filterProducts('accessories', this)"
+        >
+          ACCESSORIES
         </button>
 
       </div>
 
-    </div>
 
-  </section>
-
-
-  <!-- =========================
-       NEW ARRIVALS
-  ========================= -->
-
-  <section class="section" id="new">
-
-    <div class="section-head">
-
-      <h2>NEW<br>ARRIVALS</h2>
-
-      <span class="section-count">
-        04 / NEW
-      </span>
-
-    </div>
-
-    <div
-      class="product-grid"
-      id="newProducts"
-    ></div>
-
-  </section>
-
-
-  <!-- =========================
-       SHOP
-  ========================= -->
-
-  <section class="section" id="shop">
-
-    <div class="section-head">
-
-      <h2>SHOP</h2>
-
-      <span
-        class="section-count"
-        id="productCount"
-      >
-        08 PRODUCTS
-      </span>
-
-    </div>
-
-    <div class="filter-bar">
-
-      <button
-        class="filter-btn active"
-        onclick="filterProducts('all', this)"
-      >
-        ALL
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterProducts('tees', this)"
-      >
-        TEES
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterProducts('oversized', this)"
-      >
-        OVERSIZED
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterProducts('hoodies', this)"
-      >
-        HOODIES
-      </button>
-
-      <button
-        class="filter-btn"
-        onclick="filterProducts('accessories', this)"
-      >
-        ACCESSORIES
-      </button>
-
-    </div>
-
-    <div
-      class="product-grid"
-      id="productGrid"
-    ></div>
-
-  </section>
-
-
-  <!-- =========================
-       CATEGORIES
-  ========================= -->
-
-  <section
-    class="categories"
-    id="categories"
-  >
-
-    <div class="section-head">
-
-      <h2>CATEGORIES</h2>
-
-      <span class="section-count">
-        SELECT YOUR FIT
-      </span>
-
-    </div>
-
-    <div class="category-grid">
-
+      <!-- PRODUCTS -->
       <div
-        class="category-card"
-        onclick="filterProducts('tees')"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85"
-          alt="ZYVON tees"
-          loading="lazy"
-        >
+        class="product-grid"
+        id="productGrid"
+      ></div>
 
-        <div class="category-content">
-          <h3>TEES</h3>
-          <span>EXPLORE →</span>
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-small">
+            03 / CATEGORIES
+          </div>
+
+          <h2 class="section-title">
+            FIND<br>
+            YOUR FIT.
+          </h2>
+
         </div>
+
       </div>
 
 
-      <div
-        class="category-card"
-        onclick="filterProducts('hoodies')"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"
-          alt="ZYVON hoodies"
-          loading="lazy"
+      <div class="category-grid">
+
+        <div
+          class="category"
+          onclick="filterProducts('tees')"
         >
 
-        <div class="category-content">
-          <h3>HOODIES</h3>
-          <span>EXPLORE →</span>
+          <div class="category-content">
+
+            <div class="category-number">
+              01
+            </div>
+
+            <h3>
+              TEES
+            </h3>
+
+          </div>
+
         </div>
-      </div>
 
 
-      <div
-        class="category-card"
-        onclick="filterProducts('accessories')"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=1200&q=85"
-          alt="ZYVON accessories"
-          loading="lazy"
+        <div
+          class="category"
+          onclick="filterProducts('oversized')"
         >
 
-        <div class="category-content">
-          <h3>ACCESSORIES</h3>
-          <span>EXPLORE →</span>
+          <div class="category-content">
+
+            <div class="category-number">
+              02
+            </div>
+
+            <h3>
+              OVERSIZED
+            </h3>
+
+          </div>
+
         </div>
-      </div>
-
-    </div>
-
-  </section>
 
 
-  <!-- =========================
-       OUR STORY
-  ========================= -->
-
-  <section
-    class="section"
-    id="story"
-  >
-
-    <div class="editorial">
-
-      <div class="editorial-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85"
-          alt="ZYVON streetwear"
-          loading="lazy"
+        <div
+          class="category"
+          onclick="filterProducts('hoodies')"
         >
 
+          <div class="category-content">
+
+            <div class="category-number">
+              03
+            </div>
+
+            <h3>
+              HOODIES
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="category"
+          onclick="filterProducts('accessories')"
+        >
+
+          <div class="category-content">
+
+            <div class="category-number">
+              04
+            </div>
+
+            <h3>
+              ACCESSORIES
+            </h3>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="editorial-content">
+    </section>
 
-        <p class="eyebrow">
-          OUR PHILOSOPHY
-        </p>
 
-        <h2>BUILT<br>DIFFERENT.</h2>
+    <!-- OUR STORY -->
+    <section
+      class="story"
+      id="story"
+    >
+
+      <div>
+
+        <div class="story-label">
+          04 / OUR STORY
+        </div>
+
+        <h2>
+          BUILT<br>
+          DIFFERENT.
+        </h2>
 
         <p>
-          ZYVON is about modern streetwear without unnecessary
-          complications.
+          ZYVON was created around one simple idea:
+          your clothes should feel like an extension of who you are.
+          We focus on modern shapes, minimal design and everyday pieces
+          made to stand out without trying too hard.
         </p>
-
-        <p>
-          We focus on clean design, strong silhouettes and everyday
-          pieces that let your personality do the talking.
-        </p>
-
-        <button
-          class="outline-btn"
-          onclick="scrollToShop()"
-        >
-          EXPLORE ZYVON
-        </button>
 
       </div>
 
-    </div>
 
-  </section>
+      <div class="story-box">
+
+        <div class="story-mark">
+          Z
+        </div>
+
+      </div>
+
+    </section>
 
 
-  <!-- =========================
-       NEWSLETTER
-  ========================= -->
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
 
-  <section class="newsletter">
+      <div class="section-small">
+        05 / STAY CONNECTED
+      </div>
 
-    <div class="newsletter-inner">
-
-      <p class="eyebrow">
-        STAY IN THE LOOP
-      </p>
-
-      <h2>DON'T<br>BLINK.</h2>
+      <h2>
+        DON'T MISS<br>
+        THE DROP.
+      </h2>
 
       <p>
-        Get updates about new drops, collections and ZYVON releases.
+        Get updates about new collections and ZYVON releases.
       </p>
 
-      <form id="newsletterForm">
+
+      <form
+        class="newsletter-form"
+        id="newsletterForm"
+      >
 
         <input
-          id="newsletterEmail"
           type="email"
-          placeholder="YOUR EMAIL ADDRESS"
-          aria-label="Email address"
+          id="newsletterEmail"
+          placeholder="YOUR EMAIL"
+          autocomplete="email"
           required
         >
 
         <button type="submit">
-          JOIN
+          JOIN →
         </button>
 
       </form>
 
-      <small>
-        No spam. Just ZYVON.
-      </small>
+    </section>
 
-    </div>
-
-  </section>
+  </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
+  <footer>
 
-  <footer class="footer">
+    <div class="footer-inner">
 
-    <div class="footer-main">
-
-      <div class="footer-brand">
+      <div class="footer-top">
 
         <div class="footer-logo">
           ZYVON
         </div>
 
-        <p>
+
+        <div class="footer-links">
+
+          <a href="#shop">
+            SHOP
+          </a>
+
+          <a href="#story">
+            ABOUT
+          </a>
+
+          <a href="mailto:hello@zyvon.store">
+            CONTACT
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 ZYVON
+        </span>
+
+        <span>
           WEAR YOUR EDGE.
-        </p>
+        </span>
 
       </div>
-
-
-      <div class="footer-column">
-
-        <h4>SHOP</h4>
-
-        <a href="#shop">All Products</a>
-        <a href="#new">New Arrivals</a>
-        <a href="#categories">Categories</a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h4>ABOUT</h4>
-
-        <a href="#story">Our Story</a>
-
-        <button onclick="comingSoon('Contact')">
-          Contact
-        </button>
-
-        <button onclick="comingSoon('Shipping')">
-          Shipping
-        </button>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h4>SOCIAL</h4>
-
-        <button onclick="comingSoon('Instagram')">
-          Instagram
-        </button>
-
-        <button onclick="comingSoon('YouTube')">
-          YouTube
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      <span>
-        © 2026 ZYVON. ALL RIGHTS RESERVED.
-      </span>
-
-      <span>
-        DESIGNED FOR THE NEXT.
-      </span>
 
     </div>
 
   </footer>
 
 
-  <!-- =========================
-       SEARCH OVERLAY
-  ========================= -->
-
+  <!-- SEARCH OVERLAY -->
   <div
     class="search-overlay"
     id="searchOverlay"
@@ -1710,35 +473,29 @@
       ×
     </button>
 
-    <div class="search-container">
 
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="SEARCH PRODUCTS..."
-        autocomplete="off"
-      >
+    <input
+      class="search-input"
+      id="searchInput"
+      type="search"
+      placeholder="SEARCH ZYVON..."
+      autocomplete="off"
+    >
 
-      <div id="searchResults"></div>
 
-    </div>
+    <div
+      class="search-results"
+      id="searchResults"
+    ></div>
 
   </div>
 
 
-  <!-- =========================
-       PRODUCT MODAL
-  ========================= -->
-
+  <!-- PRODUCT MODAL -->
   <div
-    class="product-modal"
+    class="modal"
     id="productModal"
   >
-
-    <div
-      class="modal-backdrop"
-      onclick="closeProductModal()"
-    ></div>
 
     <div class="modal-content">
 
@@ -1750,67 +507,66 @@
         ×
       </button>
 
+
       <div class="modal-image">
 
         <img
-          id="modalProductImage"
+          id="modalImage"
           src=""
-          alt="Product"
+          alt=""
         >
 
       </div>
 
+
       <div class="modal-info">
 
-        <h2 id="modalProductName"></h2>
+        <div
+          class="product-category"
+          id="modalCategory"
+        ></div>
+
+        <h2 id="modalName"></h2>
 
         <div
           class="modal-price"
-          id="modalProductPrice"
+          id="modalPrice"
         ></div>
 
-        <p
-          class="modal-description"
-          id="modalProductDescription"
-        ></p>
+        <p id="modalDescription"></p>
 
-        <div class="size-title">
+
+        <div class="size-label">
           SELECT SIZE
         </div>
 
+
         <div class="sizes">
 
-          <button
-            onclick="selectSize('S', this)"
-          >
+          <button onclick="selectSize('S', this)">
             S
           </button>
 
-          <button
-            onclick="selectSize('M', this)"
-          >
+          <button onclick="selectSize('M', this)">
             M
           </button>
 
-          <button
-            onclick="selectSize('L', this)"
-          >
+          <button onclick="selectSize('L', this)">
             L
           </button>
 
-          <button
-            onclick="selectSize('XL', this)"
-          >
+          <button onclick="selectSize('XL', this)">
             XL
           </button>
 
         </div>
 
+
         <button
-          class="add-cart-btn"
+          class="add-btn"
           onclick="addSelectedProductToCart()"
         >
-          ADD TO CART
+          ADD TO CART →
         </button>
 
       </div>
@@ -1820,1032 +576,78 @@
   </div>
 
 
-  <!-- =========================
-       CART
-  ========================= -->
-
+  <!-- CART OVERLAY -->
   <div
     class="cart-overlay"
     id="cartOverlay"
+    onclick="closeCart()"
+  ></div>
+
+
+  <!-- CART DRAWER -->
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
   >
 
+    <div class="cart-header">
+
+      <h2>
+        YOUR CART
+      </h2>
+
+      <button
+        onclick="closeCart()"
+        aria-label="Close cart"
+      >
+        ×
+      </button>
+
+    </div>
+
+
     <div
-      class="cart-backdrop"
-      onclick="closeCart()"
+      class="cart-items"
+      id="cartItems"
     ></div>
 
-    <aside class="cart-drawer">
 
-      <div class="cart-header">
+    <div class="cart-footer">
 
-        <h2>
-          YOUR CART
-        </h2>
+      <div class="cart-total">
 
-        <button
-          class="cart-close"
-          onclick="closeCart()"
-          aria-label="Close cart"
-        >
-          ×
-        </button>
+        <span>
+          TOTAL
+        </span>
+
+        <strong id="cartTotal">
+          ₹0
+        </strong>
 
       </div>
 
-      <div
-        class="cart-items"
-        id="cartItems"
-      ></div>
 
-      <div class="cart-footer">
+      <button
+        class="checkout-btn"
+        onclick="checkout()"
+      >
+        CHECKOUT →
+      </button>
 
-        <div class="cart-total">
+    </div>
 
-          <span>
-            TOTAL
-          </span>
-
-          <span id="cartTotal">
-            ₹0
-          </span>
-
-        </div>
-
-        <button
-          class="checkout-btn"
-          onclick="checkout()"
-        >
-          CHECKOUT
-        </button>
-
-        <p class="checkout-note">
-          Secure checkout coming soon.
-        </p>
-
-      </div>
-
-    </aside>
-
-  </div>
+  </aside>
 
 
-  <!-- =========================
-       TOAST
-  ========================= -->
-
+  <!-- TOAST -->
   <div
     class="toast"
     id="toast"
   ></div>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
-  <script>
-
-    /* =========================
-       PRODUCT DATABASE
-    ========================= */
-
-    const products = [
-
-      {
-        id: 1,
-        name: "ZYVON CORE TEE",
-        category: "tees",
-        categoryName: "TEES",
-        price: 799,
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
-        description:
-          "A clean everyday essential with the signature ZYVON attitude."
-      },
-
-      {
-        id: 2,
-        name: "OVERSIZED SIGNAL",
-        category: "oversized",
-        categoryName: "OVERSIZED",
-        price: 999,
-        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
-        description:
-          "Relaxed oversized silhouette built for everyday streetwear."
-      },
-
-      {
-        id: 3,
-        name: "BLACKOUT OVERSIZED",
-        category: "oversized",
-        categoryName: "OVERSIZED",
-        price: 1099,
-        image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
-        description:
-          "Minimal black oversized styling with a powerful silhouette."
-      },
-
-      {
-        id: 4,
-        name: "ZYVON HEAVY HOODIE",
-        category: "hoodies",
-        categoryName: "HOODIES",
-        price: 1499,
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
-        description:
-          "Heavyweight comfort with a clean modern streetwear profile."
-      },
-
-      {
-        id: 5,
-        name: "SHADOW HOODIE",
-        category: "hoodies",
-        categoryName: "HOODIES",
-        price: 1599,
-        image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=85",
-        description:
-          "A premium everyday hoodie designed for colder days."
-      },
-
-      {
-        id: 6,
-        name: "ESSENTIAL TEE",
-        category: "tees",
-        categoryName: "TEES",
-        price: 749,
-        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=85",
-        description:
-          "Simple. Versatile. Built to become an everyday essential."
-      },
-
-      {
-        id: 7,
-        name: "ZYVON CAP",
-        category: "accessories",
-        categoryName: "ACCESSORIES",
-        price: 599,
-        image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
-        description:
-          "A clean finishing piece for your everyday streetwear fit."
-      },
-
-      {
-        id: 8,
-        name: "ZYVON TOTE",
-        category: "accessories",
-        categoryName: "ACCESSORIES",
-        price: 699,
-        image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85",
-        description:
-          "Minimal utility with the unmistakable ZYVON aesthetic."
-      }
-
-    ];
-
-
-    /* =========================
-       STATE
-    ========================= */
-
-    let currentProducts = [...products];
-
-    let selectedProduct = null;
-
-    let selectedSize = null;
-
-    let cart = [];
-
-
-    /* =========================
-       PRICE
-    ========================= */
-
-    function formatPrice(price) {
-
-      return "₹" + price.toLocaleString("en-IN");
-
-    }
-
-
-    /* =========================
-       RENDER PRODUCTS
-    ========================= */
-
-    function renderProducts(list = currentProducts) {
-
-      const grid =
-        document.getElementById("productGrid");
-
-      if (!grid) return;
-
-      currentProducts = list;
-
-      grid.innerHTML = "";
-
-      if (list.length === 0) {
-
-        grid.innerHTML = `
-          <p style="
-            grid-column:1/-1;
-            padding:40px 0;
-            color:#777;
-            font-size:12px;
-          ">
-            NO PRODUCTS FOUND.
-          </p>
-        `;
-
-        document.getElementById("productCount").textContent =
-          "0 PRODUCTS";
-
-        return;
-      }
-
-      list.forEach(product => {
-
-        grid.innerHTML += createProductCard(product);
-
-      });
-
-      document.getElementById("productCount").textContent =
-        `${list.length.toString().padStart(2, "0")} PRODUCTS`;
-
-    }
-
-
-    function createProductCard(product) {
-
-      return `
-        <article
-          class="product-card"
-          onclick="openProduct(${product.id})"
-        >
-
-          <div class="product-image">
-
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-              loading="lazy"
-            >
-
-            <div class="product-hover">
-              VIEW PRODUCT →
-            </div>
-
-          </div>
-
-          <div class="product-info">
-
-            <div>
-
-              <h3>
-                ${product.name}
-              </h3>
-
-              <p>
-                ${product.categoryName}
-              </p>
-
-            </div>
-
-            <strong>
-              ${formatPrice(product.price)}
-            </strong>
-
-          </div>
-
-        </article>
-      `;
-
-    }
-
-
-    /* =========================
-       NEW PRODUCTS
-    ========================= */
-
-    function renderNewProducts() {
-
-      const container =
-        document.getElementById("newProducts");
-
-      if (!container) return;
-
-      container.innerHTML = "";
-
-      products
-        .slice(0, 4)
-        .forEach(product => {
-
-          container.innerHTML +=
-            createProductCard(product);
-
-        });
-
-    }
-
-
-    /* =========================
-       FILTER
-    ========================= */
-
-    function filterProducts(category, button = null) {
-
-      if (category === "all") {
-
-        currentProducts = [...products];
-
-      } else {
-
-        currentProducts =
-          products.filter(
-            product => product.category === category
-          );
-
-      }
-
-      renderProducts(currentProducts);
-
-      document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn => btn.classList.remove("active"));
-
-      if (button) {
-
-        button.classList.add("active");
-
-      } else {
-
-        document
-          .querySelectorAll(".filter-btn")
-          .forEach(btn => {
-
-            const text =
-              btn.textContent.trim().toLowerCase();
-
-            if (text === category) {
-
-              btn.classList.add("active");
-
-            }
-
-          });
-
-      }
-
-      document
-        .getElementById("shop")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-
-    /* =========================
-       PRODUCT MODAL
-    ========================= */
-
-    function openProduct(id) {
-
-      const product =
-        products.find(item => item.id === id);
-
-      if (!product) return;
-
-      selectedProduct = product;
-
-      selectedSize = null;
-
-      document.getElementById("modalProductImage").src =
-        product.image;
-
-      document.getElementById("modalProductImage").alt =
-        product.name;
-
-      document.getElementById("modalProductName").textContent =
-        product.name;
-
-      document.getElementById("modalProductPrice").textContent =
-        formatPrice(product.price);
-
-      document.getElementById("modalProductDescription").textContent =
-        product.description;
-
-      document
-        .querySelectorAll(".sizes button")
-        .forEach(button => {
-          button.classList.remove("selected");
-        });
-
-      document
-        .getElementById("productModal")
-        .classList.add("active");
-
-      document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeProductModal() {
-
-      document
-        .getElementById("productModal")
-        .classList.remove("active");
-
-      document.body.classList.remove("no-scroll");
-
-    }
-
-
-    function selectSize(size, button) {
-
-      selectedSize = size;
-
-      document
-        .querySelectorAll(".sizes button")
-        .forEach(item => {
-          item.classList.remove("selected");
-        });
-
-      button.classList.add("selected");
-
-    }
-
-
-    /* =========================
-       CART
-    ========================= */
-
-    function addSelectedProductToCart() {
-
-      if (!selectedProduct) return;
-
-      if (!selectedSize) {
-
-        showToast("SELECT A SIZE FIRST");
-
-        return;
-
-      }
-
-      const existing =
-        cart.find(
-          item =>
-            item.id === selectedProduct.id &&
-            item.size === selectedSize
-        );
-
-      if (existing) {
-
-        existing.quantity += 1;
-
-      } else {
-
-        cart.push({
-
-          id: selectedProduct.id,
-
-          size: selectedSize,
-
-          quantity: 1
-
-        });
-
-      }
-
-      saveCart();
-
-      updateCart();
-
-      closeProductModal();
-
-      openCart();
-
-      showToast("ADDED TO CART");
-
-    }
-
-
-    function saveCart() {
-
-      localStorage.setItem(
-        "zyvonCart",
-        JSON.stringify(cart)
-      );
-
-    }
-
-
-    function loadCart() {
-
-      try {
-
-        const saved =
-          localStorage.getItem("zyvonCart");
-
-        cart =
-          saved
-            ? JSON.parse(saved)
-            : [];
-
-        if (!Array.isArray(cart)) {
-
-          cart = [];
-
-        }
-
-      } catch (error) {
-
-        cart = [];
-
-      }
-
-    }
-
-
-    function updateCart() {
-
-      const container =
-        document.getElementById("cartItems");
-
-      const count =
-        document.getElementById("headerCartCount");
-
-      const totalElement =
-        document.getElementById("cartTotal");
-
-      if (!container || !count || !totalElement) return;
-
-      let total = 0;
-
-      let itemCount = 0;
-
-      if (cart.length === 0) {
-
-        container.innerHTML = `
-          <div class="empty-cart">
-
-            <p>
-              YOUR CART IS EMPTY
-            </p>
-
-            <button onclick="closeCart(); scrollToShop();">
-              CONTINUE SHOPPING
-            </button>
-
-          </div>
-        `;
-
-      } else {
-
-        container.innerHTML = "";
-
-        cart.forEach(item => {
-
-          const product =
-            products.find(
-              product => product.id === item.id
-            );
-
-          if (!product) return;
-
-          const subtotal =
-            product.price * item.quantity;
-
-          total += subtotal;
-
-          itemCount += item.quantity;
-
-          container.innerHTML += `
-
-            <div class="cart-item">
-
-              <img
-                src="${product.image}"
-                alt="${product.name}"
-              >
-
-              <div class="cart-item-info">
-
-                <h4>
-                  ${product.name}
-                </h4>
-
-                <p>
-                  SIZE: ${item.size}
-                </p>
-
-                <strong>
-                  ${formatPrice(subtotal)}
-                </strong>
-
-                <div class="quantity-control">
-
-                  <button
-                    onclick="changeQuantity(${item.id}, '${item.size}', -1)"
-                  >
-                    −
-                  </button>
-
-                  <span>
-                    ${item.quantity}
-                  </span>
-
-                  <button
-                    onclick="changeQuantity(${item.id}, '${item.size}', 1)"
-                  >
-                    +
-                  </button>
-
-                </div>
-
-                <button
-                  class="remove-item"
-                  onclick="removeFromCart(${item.id}, '${item.size}')"
-                >
-                  REMOVE
-                </button>
-
-              </div>
-
-            </div>
-
-          `;
-
-        });
-
-      }
-
-      count.textContent = itemCount;
-
-      totalElement.textContent =
-        formatPrice(total);
-
-    }
-
-
-    function changeQuantity(id, size, amount) {
-
-      const item =
-        cart.find(
-          cartItem =>
-            cartItem.id === id &&
-            cartItem.size === size
-        );
-
-      if (!item) return;
-
-      item.quantity += amount;
-
-      if (item.quantity <= 0) {
-
-        cart =
-          cart.filter(
-            cartItem =>
-              !(
-                cartItem.id === id &&
-                cartItem.size === size
-              )
-          );
-
-      }
-
-      saveCart();
-
-      updateCart();
-
-    }
-
-
-    function removeFromCart(id, size) {
-
-      cart =
-        cart.filter(
-          item =>
-            !(
-              item.id === id &&
-              item.size === size
-            )
-        );
-
-      saveCart();
-
-      updateCart();
-
-      showToast("REMOVED FROM CART");
-
-    }
-
-
-    function openCart() {
-
-      document
-        .getElementById("cartOverlay")
-        .classList.add("active");
-
-      document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeCart() {
-
-      document
-        .getElementById("cartOverlay")
-        .classList.remove("active");
-
-      document.body.classList.remove("no-scroll");
-
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================= */
-
-    function openSearch() {
-
-      const overlay =
-        document.getElementById("searchOverlay");
-
-      overlay.classList.add("active");
-
-      document.body.classList.add("no-scroll");
-
-      setTimeout(() => {
-
-        document
-          .getElementById("searchInput")
-          .focus();
-
-      }, 200);
-
-    }
-
-
-    function closeSearch() {
-
-      document
-        .getElementById("searchOverlay")
-        .classList.remove("active");
-
-      document.body.classList.remove("no-scroll");
-
-      document
-        .getElementById("searchInput")
-        .value = "";
-
-      document
-        .getElementById("searchResults")
-        .innerHTML = "";
-
-    }
-
-
-    function searchProducts(query) {
-
-      const results =
-        document.getElementById("searchResults");
-
-      const cleanQuery =
-        query.trim().toLowerCase();
-
-      if (!cleanQuery) {
-
-        results.innerHTML = "";
-
-        return;
-
-      }
-
-      const matches =
-        products.filter(product =>
-          product.name.toLowerCase().includes(cleanQuery) ||
-          product.categoryName.toLowerCase().includes(cleanQuery) ||
-          product.description.toLowerCase().includes(cleanQuery)
-        );
-
-      if (matches.length === 0) {
-
-        results.innerHTML = `
-          <p class="search-empty">
-            NO PRODUCTS FOUND.
-          </p>
-        `;
-
-        return;
-
-      }
-
-      results.innerHTML = "";
-
-      matches.forEach(product => {
-
-        results.innerHTML += `
-
-          <div
-            class="search-result"
-            onclick="closeSearch(); openProduct(${product.id})"
-          >
-
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-            >
-
-            <div>
-
-              <h4>
-                ${product.name}
-              </h4>
-
-              <p>
-                ${formatPrice(product.price)}
-              </p>
-
-            </div>
-
-          </div>
-
-        `;
-
-      });
-
-    }
-
-
-    /* =========================
-       SCROLL
-    ========================= */
-
-    function scrollToShop() {
-
-      document
-        .getElementById("shop")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
-    function toggleMobileMenu() {
-
-      document
-        .getElementById("mobileMenu")
-        .classList.toggle("active");
-
-    }
-
-
-    function closeMobileMenu() {
-
-      document
-        .getElementById("mobileMenu")
-        .classList.remove("active");
-
-    }
-
-
-    /* =========================
-       NEWSLETTER
-    ========================= */
-
-    document
-      .getElementById("newsletterForm")
-      .addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const email =
-          document
-            .getElementById("newsletterEmail")
-            .value
-            .trim();
-
-        if (!email) return;
-
-        showToast("WELCOME TO ZYVON");
-
-        this.reset();
-
-      });
-
-
-    /* =========================
-       COMING SOON
-    ========================= */
-
-    function comingSoon(name) {
-
-      showToast(
-        name.toUpperCase() + " COMING SOON"
-      );
-
-    }
-
-
-    /* =========================
-       CHECKOUT
-    ========================= */
-
-    function checkout() {
-
-      if (cart.length === 0) {
-
-        showToast("YOUR CART IS EMPTY");
-
-        return;
-
-      }
-
-      showToast("CHECKOUT COMING SOON");
-
-    }
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    let toastTimer;
-
-    function showToast(message) {
-
-      const toast =
-        document.getElementById("toast");
-
-      toast.textContent = message;
-
-      toast.classList.add("show");
-
-      clearTimeout(toastTimer);
-
-      toastTimer =
-        setTimeout(() => {
-
-          toast.classList.remove("show");
-
-        }, 2500);
-
-    }
-
-
-    /* =========================
-       SEARCH LISTENER
-    ========================= */
-
-    document
-      .getElementById("searchInput")
-      .addEventListener("input", function() {
-
-        searchProducts(this.value);
-
-      });
-
-
-    /* =========================
-       KEYBOARD
-    ========================= */
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Escape") {
-
-          closeSearch();
-
-          closeProductModal();
-
-          closeCart();
-
-          closeMobileMenu();
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       INITIALIZE
-    ========================= */
-
-    loadCart();
-
-    renderProducts();
-
-    renderNewProducts();
-
-    updateCart();
-
-  </script>
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
-</html>
+          </html>
