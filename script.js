@@ -1,8 +1,17 @@
 /* =========================================================
-   ZYVON — SCRIPT.JS
+   ZYVON — COMPLETE SCRIPT.JS
+   Premium Streetwear Store Front-End
+========================================================= */
+
+"use strict";
+
+/* =========================================================
+   PRODUCT DATA
+   Existing working image URLs are preserved.
 ========================================================= */
 
 const products = [
+  /* ---------------- TEES ---------------- */
   {
     id: 1,
     name: "ZYVON CORE TEE",
@@ -10,845 +19,766 @@ const products = [
     categoryName: "TEES",
     price: 799,
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
-    description: "A clean everyday essential with the signature ZYVON attitude."
+    description: "Heavyweight everyday essential with a clean ZYVON silhouette."
   },
   {
     id: 2,
+    name: "SHADOW TEE",
+    category: "tees",
+    categoryName: "TEES",
+    price: 849,
+    image: "https://images.unsplash.com/photo-1583743814966-8936f37f4678?auto=format&fit=crop&w=900&q=85",
+    description: "Minimal black streetwear essential designed for everyday wear."
+  },
+  {
+    id: 3,
+    name: "SIGNAL TEE",
+    category: "tees",
+    categoryName: "TEES",
+    price: 899,
+    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
+    description: "Clean silhouette with a modern streetwear attitude."
+  },
+  {
+    id: 4,
+    name: "ESSENTIAL WHITE",
+    category: "tees",
+    categoryName: "TEES",
+    price: 749,
+    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=85",
+    description: "A versatile everyday essential built around simplicity."
+  },
+  {
+    id: 5,
+    name: "ZYVON GRAPHIC",
+    category: "tees",
+    categoryName: "TEES",
+    price: 949,
+    image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=900&q=85",
+    description: "Statement graphic styling with a contemporary streetwear feel."
+  },
+
+  /* ---------------- OVERSIZED ---------------- */
+  {
+    id: 6,
     name: "OVERSIZED SIGNAL",
     category: "oversized",
     categoryName: "OVERSIZED",
     price: 999,
     image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
-    description: "Relaxed oversized silhouette built for everyday streetwear."
+    description: "Relaxed oversized silhouette built for effortless streetwear."
   },
   {
-    id: 3,
+    id: 7,
     name: "BLACKOUT OVERSIZED",
     category: "oversized",
     categoryName: "OVERSIZED",
     price: 1099,
-    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
-    description: "Minimal black oversized styling with a powerful silhouette."
+    image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
+    description: "Dark minimal styling with a strong oversized silhouette."
   },
   {
-    id: 4,
+    id: 8,
+    name: "DROP SHOULDER",
+    category: "oversized",
+    categoryName: "OVERSIZED",
+    price: 1049,
+    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",
+    description: "Modern drop-shoulder shape made for relaxed everyday looks."
+  },
+  {
+    id: 9,
+    name: "URBAN OVERSIZED",
+    category: "oversized",
+    categoryName: "OVERSIZED",
+    price: 1149,
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=85",
+    description: "Relaxed fit designed around modern urban styling."
+  },
+  {
+    id: 10,
+    name: "ZYVON RELAXED",
+    category: "oversized",
+    categoryName: "OVERSIZED",
+    price: 1099,
+    image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=85",
+    description: "Premium relaxed silhouette for an effortless daily fit."
+  },
+
+  /* ---------------- HOODIES ---------------- */
+  {
+    id: 11,
     name: "ZYVON HEAVY HOODIE",
     category: "hoodies",
     categoryName: "HOODIES",
     price: 1499,
     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
-    description: "Heavyweight comfort with a clean modern streetwear profile."
+    description: "Heavyweight comfort with a clean modern profile."
   },
   {
-    id: 5,
+    id: 12,
     name: "SHADOW HOODIE",
     category: "hoodies",
     categoryName: "HOODIES",
     price: 1599,
     image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=85",
-    description: "A premium everyday hoodie designed for colder days."
+    description: "Premium everyday hoodie with a strong minimal aesthetic."
   },
   {
-    id: 6,
-    name: "ESSENTIAL TEE",
-    category: "tees",
-    categoryName: "TEES",
-    price: 749,
-    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=85",
-    description: "Simple. Versatile. Built to become an everyday essential."
+    id: 13,
+    name: "CORE ZIP HOODIE",
+    category: "hoodies",
+    categoryName: "HOODIES",
+    price: 1699,
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+    description: "Clean zip-up layer designed for everyday streetwear."
   },
   {
-    id: 7,
+    id: 14,
+    name: "NIGHTFALL HOODIE",
+    category: "hoodies",
+    categoryName: "HOODIES",
+    price: 1799,
+    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=900&q=85",
+    description: "Dark heavyweight styling made for cooler days."
+  },
+  {
+    id: 15,
+    name: "URBAN HEAVYWEIGHT",
+    category: "hoodies",
+    categoryName: "HOODIES",
+    price: 1699,
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
+    description: "Built around a modern heavyweight streetwear wardrobe."
+  },
+
+  /* ---------------- ACCESSORIES ---------------- */
+  {
+    id: 16,
     name: "ZYVON CAP",
     category: "accessories",
     categoryName: "ACCESSORIES",
     price: 599,
     image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
-    description: "A clean finishing piece for your everyday streetwear fit."
+    description: "Clean finishing piece for everyday streetwear fits."
   },
   {
-    id: 8,
+    id: 17,
     name: "ZYVON TOTE",
     category: "accessories",
     categoryName: "ACCESSORIES",
     price: 699,
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85",
-    description: "Minimal utility with the unmistakable ZYVON aesthetic."
+    description: "Minimal utility with the unmistakable ZYVON attitude."
+  },
+  {
+    id: 18,
+    name: "CORE BAG",
+    category: "accessories",
+    categoryName: "ACCESSORIES",
+    price: 799,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+    description: "Everyday carry designed around clean modern utility."
+  },
+  {
+    id: 19,
+    name: "STREET CAP",
+    category: "accessories",
+    categoryName: "ACCESSORIES",
+    price: 649,
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=900&q=85",
+    description: "Minimal cap designed to finish a modern streetwear look."
+  },
+  {
+    id: 20,
+    name: "UTILITY TOTE",
+    category: "accessories",
+    categoryName: "ACCESSORIES",
+    price: 749,
+    image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
+    description: "Functional everyday tote with a modern utility aesthetic."
   }
 ];
+
+/* =========================================================
+   STATE
+========================================================= */
 
 let cart = [];
 let selectedProduct = null;
 let selectedSize = null;
 let currentProducts = [...products];
+let activeCategory = "all";
 
+/* =========================================================
+   HELPERS
+========================================================= */
 
-/* =========================
-   PRICE
-========================= */
-
-function formatPrice(price) {
-  return "₹" + price.toLocaleString("en-IN");
+function $(selector) {
+  return document.querySelector(selector);
 }
 
+function $$(selector) {
+  return document.querySelectorAll(selector);
+}
 
-/* =========================
-   PRODUCT CARD
-========================= */
+function formatPrice(price) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(price);
+}
+
+function escapeHTML(value) {
+  const div = document.createElement("div");
+  div.textContent = value;
+  return div.innerHTML;
+}
+
+function isClothing(product) {
+  return ["tees", "oversized", "hoodies"].includes(product.category);
+}
+
+/* =========================================================
+   PRODUCT CARDS
+========================================================= */
 
 function createProductCard(product) {
+  if (!product) return "";
+
   return `
-    <article
-      class="product-card"
-      onclick="openProduct(${product.id})"
-    >
-
-      <div class="product-image">
-
+    <article class="product-card" data-product-id="${product.id}">
+      <button
+        class="product-image-wrap"
+        type="button"
+        onclick="openProduct(${product.id})"
+        aria-label="View ${escapeHTML(product.name)}"
+      >
         <img
+          class="product-image"
           src="${product.image}"
-          alt="${product.name}"
+          alt="${escapeHTML(product.name)}"
           loading="lazy"
+          onerror="this.style.opacity='0.25';"
         >
-
-      </div>
+        <span class="product-view">VIEW</span>
+      </button>
 
       <div class="product-info">
-
-        <div class="product-category">
-          ${product.categoryName}
+        <div class="product-meta">
+          <span>${escapeHTML(product.categoryName)}</span>
+          <span>${formatPrice(product.price)}</span>
         </div>
 
-        <div class="product-name">
-          ${product.name}
-        </div>
+        <h3>${escapeHTML(product.name)}</h3>
 
-        <div class="product-price">
-          ${formatPrice(product.price)}
-        </div>
-
+        <button
+          class="product-add"
+          type="button"
+          onclick="openProduct(${product.id})"
+        >
+          QUICK VIEW +
+        </button>
       </div>
-
     </article>
   `;
 }
 
-
-/* =========================
+/* =========================================================
    RENDER PRODUCTS
-========================= */
+========================================================= */
 
 function renderProducts(list = currentProducts) {
   const grid =
-    document.getElementById("productGrid");
+    $(".products-grid") ||
+    $("#productGrid") ||
+    $(".product-grid");
 
   if (!grid) return;
 
+  currentProducts = [...list];
+
   if (!list.length) {
     grid.innerHTML = `
-      <p style="color:#666;font-size:12px;">
-        No products found.
-      </p>
+      <div class="empty-products">
+        <div class="empty-products-mark">Z</div>
+        <h3>NO RESULTS</h3>
+        <p>We couldn't find anything matching your search.</p>
+        <button type="button" onclick="filterProducts('all')">
+          VIEW ALL PRODUCTS
+        </button>
+      </div>
     `;
     return;
   }
 
-  grid.innerHTML = list
-    .map(createProductCard)
-    .join("");
+  grid.innerHTML = list.map(createProductCard).join("");
 }
-
-
-/* =========================
-   NEW PRODUCTS
-========================= */
 
 function renderNewProducts() {
   const container =
-    document.getElementById("newProducts");
+    $(".new-products-grid") ||
+    $("#newProducts") ||
+    $(".new-arrivals-grid");
 
   if (!container) return;
 
-  container.innerHTML = products
-    .slice(0, 4)
+  const newProducts = products.slice(0, 6);
+
+  container.innerHTML = newProducts
     .map(createProductCard)
     .join("");
 }
 
-
-/* =========================
-   FILTER PRODUCTS
-========================= */
+/* =========================================================
+   FILTERS
+========================================================= */
 
 function filterProducts(category, button = null) {
+  activeCategory = String(category || "all").toLowerCase();
 
-  if (category === "all") {
+  if (activeCategory === "all") {
     currentProducts = [...products];
   } else {
     currentProducts = products.filter(
-      product =>
-        product.category === category
+      product => product.category === activeCategory
     );
   }
 
-  document
-    .querySelectorAll(".filter-btn")
-    .forEach(btn =>
-      btn.classList.remove("active")
-    );
+  $$(".filter-btn, .filter-button, [data-filter]").forEach(btn => {
+    btn.classList.remove("active");
+  });
 
   if (button) {
     button.classList.add("active");
+  } else {
+    $$(".filter-btn, .filter-button, [data-filter]").forEach(btn => {
+      const value =
+        btn.dataset.filter ||
+        btn.dataset.category ||
+        btn.getAttribute("data-category");
+
+      if (value && value.toLowerCase() === activeCategory) {
+        btn.classList.add("active");
+      }
+    });
   }
 
-  renderProducts();
+  renderProducts(currentProducts);
 
-  document
-    .getElementById("shop")
-    ?.scrollIntoView({
-      behavior: "smooth"
+  const shop = $("#shop");
+  if (shop && category !== "all") {
+    shop.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
+  }
 }
 
-
-/* =========================
+/* =========================================================
    PRODUCT MODAL
-========================= */
+========================================================= */
 
 function openProduct(id) {
-
-  const product =
-    products.find(
-      product => product.id === id
-    );
+  const product = products.find(item => item.id === Number(id));
 
   if (!product) return;
 
   selectedProduct = product;
   selectedSize = null;
 
-  document.getElementById("modalImage").src =
-    product.image;
+  const modal = $("#productModal") || $(".product-modal");
 
-  document.getElementById("modalImage").alt =
-    product.name;
-
-  document.getElementById("modalCategory")
-    .textContent =
-    product.categoryName;
-
-  document.getElementById("modalName")
-    .textContent =
-    product.name;
-
-  document.getElementById("modalPrice")
-    .textContent =
-    formatPrice(product.price);
-
-  document.getElementById("modalDescription")
-    .textContent =
-    product.description;
-
-  document
-    .querySelectorAll(".sizes button")
-    .forEach(button => {
-      button.classList.remove("selected");
-    });
-
-  document
-    .getElementById("productModal")
-    .classList.add("open");
-
-  document.body.classList.add("no-scroll");
-}
-
-
-function closeProductModal() {
-
-  document
-    .getElementById("productModal")
-    .classList.remove("open");
-
-  document.body.classList.remove("no-scroll");
-}
-
-
-/* =========================
-   SIZE
-========================= */
-
-function selectSize(size, button) {
-
-  selectedSize = size;
-
-  document
-    .querySelectorAll(".sizes button")
-    .forEach(btn =>
-      btn.classList.remove("selected")
-    );
-
-  button.classList.add("selected");
-}
-
-
-/* =========================
-   ADD TO CART
-========================= */
-
-function addSelectedProductToCart() {
-
-  if (!selectedProduct) return;
-
-  if (!selectedSize) {
-    showToast("SELECT A SIZE FIRST");
+  if (!modal) {
+    addSelectedProductToCartFallback(product);
     return;
   }
 
-  const existing =
-    cart.find(item =>
+  const image = modal.querySelector(".modal-product-image, .product-modal-image");
+  const name = modal.querySelector(".modal-product-name, .product-modal-name");
+  const category = modal.querySelector(".modal-product-category, .product-modal-category");
+  const price = modal.querySelector(".modal-product-price, .product-modal-price");
+  const description = modal.querySelector(".modal-product-description, .product-modal-description");
+
+  if (image) {
+    image.src = product.image;
+    image.alt = product.name;
+  }
+
+  if (name) name.textContent = product.name;
+  if (category) category.textContent = product.categoryName;
+  if (price) price.textContent = formatPrice(product.price);
+  if (description) description.textContent = product.description;
+
+  const sizeArea =
+    modal.querySelector(".size-selector") ||
+    modal.querySelector(".product-sizes") ||
+    modal.querySelector(".sizes");
+
+  if (sizeArea) {
+    if (isClothing(product)) {
+      sizeArea.innerHTML = `
+        <div class="size-title">SELECT SIZE</div>
+        <div class="size-options">
+          ${["S", "M", "L", "XL"]
+            .map(size => `
+              <button
+                type="button"
+                class="size-btn"
+                onclick="selectSize('${size}', this)"
+              >
+                ${size}
+              </button>
+            `)
+            .join("")}
+        </div>
+      `;
+    } else {
+      sizeArea.innerHTML = `
+        <div class="size-title">ONE SIZE</div>
+      `;
+    }
+  }
+
+  modal.classList.add("active");
+  modal.classList.add("open");
+  document.body.classList.add("modal-open");
+}
+
+function closeProductModal() {
+  const modal = $("#productModal") || $(".product-modal");
+
+  if (modal) {
+    modal.classList.remove("active");
+    modal.classList.remove("open");
+  }
+
+  selectedProduct = null;
+  selectedSize = null;
+
+  document.body.classList.remove("modal-open");
+}
+
+function selectSize(size, button) {
+  selectedSize = size;
+
+  $$(".size-btn").forEach(btn => {
+    btn.classList.remove("selected");
+    btn.classList.remove("active");
+  });
+
+  if (button) {
+    button.classList.add("selected");
+    button.classList.add("active");
+  }
+}
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addSelectedProductToCart() {
+  if (!selectedProduct) {
+    showToast("Select a product first");
+    return;
+  }
+
+  if (isClothing(selectedProduct) && !selectedSize) {
+    showToast("Please select a size");
+    return;
+  }
+
+  const size = isClothing(selectedProduct)
+    ? selectedSize
+    : "ONE SIZE";
+
+  const existing = cart.find(
+    item =>
       item.id === selectedProduct.id &&
-      item.size === selectedSize
-    );
+      item.size === size
+  );
 
   if (existing) {
     existing.quantity += 1;
   } else {
     cart.push({
       id: selectedProduct.id,
-      size: selectedSize,
+      name: selectedProduct.name,
+      price: selectedProduct.price,
+      image: selectedProduct.image,
+      size,
       quantity: 1
     });
   }
 
   saveCart();
-
   updateCart();
 
-  closeProductModal();
+  showToast(`${selectedProduct.name} added to cart`);
 
-  showToast("ADDED TO CART");
+  closeProductModal();
 }
 
+function addSelectedProductToCartFallback(product) {
+  if (!product) return;
 
-/* =========================
-   LOCAL STORAGE
-========================= */
+  const size = isClothing(product) ? "M" : "ONE SIZE";
+
+  const existing = cart.find(
+    item =>
+      item.id === product.id &&
+      item.size === size
+  );
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      size,
+      quantity: 1
+    });
+  }
+
+  saveCart();
+  updateCart();
+  showToast(`${product.name} added to cart`);
+}
 
 function saveCart() {
-
-  localStorage.setItem(
-    "zyvonCart",
-    JSON.stringify(cart)
-  );
-}
-
-
-function loadCart() {
-
   try {
-
-    const saved =
-      localStorage.getItem("zyvonCart");
-
-    if (saved) {
-      cart = JSON.parse(saved);
-    }
-
+    localStorage.setItem("zyvon_cart", JSON.stringify(cart));
   } catch (error) {
-
-    cart = [];
-
+    console.warn("Could not save cart:", error);
   }
 }
 
+function loadCart() {
+  try {
+    const saved = localStorage.getItem("zyvon_cart");
 
-/* =========================
-   UPDATE CART
-========================= */
+    if (saved) {
+      const parsed = JSON.parse(saved);
+
+      if (Array.isArray(parsed)) {
+        cart = parsed;
+      }
+    }
+  } catch (error) {
+    cart = [];
+    console.warn("Could not load cart:", error);
+  }
+}
+
+/* =========================================================
+   CART RENDER
+========================================================= */
 
 function updateCart() {
+  const count = cart.reduce(
+    (total, item) => total + Number(item.quantity || 0),
+    0
+  );
 
-  const countElement =
-    document.getElementById("cartCount");
+  const total = cart.reduce(
+    (sum, item) =>
+      sum + Number(item.price) * Number(item.quantity || 0),
+    0
+  );
 
-  const itemsElement =
-    document.getElementById("cartItems");
+  const countElements = $$(".cart-count, #cartCount, [data-cart-count]");
 
-  const totalElement =
-    document.getElementById("cartTotal");
+  countElements.forEach(element => {
+    element.textContent = count;
+    element.classList.toggle("has-items", count > 0);
+  });
 
-  const totalQuantity =
-    cart.reduce(
-      (sum, item) =>
-        sum + item.quantity,
-      0
-    );
+  const totalElements = $$(".cart-total, #cartTotal, [data-cart-total]");
 
-  countElement.textContent =
-    totalQuantity;
+  totalElements.forEach(element => {
+    element.textContent = formatPrice(total);
+  });
 
+  const subtotalElements = $$(".cart-subtotal, #cartSubtotal");
+
+  subtotalElements.forEach(element => {
+    element.textContent = formatPrice(total);
+  });
+
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container =
+    $(".cart-items") ||
+    $("#cartItems") ||
+    $(".cart-products");
+
+  if (!container) return;
 
   if (!cart.length) {
-
-    itemsElement.innerHTML = `
+    container.innerHTML = `
       <div class="empty-cart">
-        YOUR CART IS EMPTY.
+        <div class="empty-cart-mark">Z</div>
+        <h3>YOUR CART IS EMPTY</h3>
+        <p>Start building your ZYVON collection.</p>
+        <button type="button" onclick="closeCart(); scrollToShop();">
+          SHOP NOW →
+        </button>
       </div>
     `;
-
-    totalElement.textContent =
-      "₹0";
-
     return;
   }
 
+  container.innerHTML = cart
+    .map(item => `
+      <div class="cart-item">
+        <div class="cart-item-image">
+          <img src="${item.image}" alt="${escapeHTML(item.name)}">
+        </div>
 
-  let total = 0;
+        <div class="cart-item-info">
+          <h4>${escapeHTML(item.name)}</h4>
+          <span class="cart-item-size">${escapeHTML(item.size)}</span>
+          <strong>${formatPrice(item.price)}</strong>
 
-
-  itemsElement.innerHTML =
-    cart
-      .map(item => {
-
-        const product =
-          products.find(
-            p => p.id === item.id
-          );
-
-        if (!product) return "";
-
-
-        const itemTotal =
-          product.price *
-          item.quantity;
-
-        total += itemTotal;
-
-
-        return `
-          <div class="cart-item">
-
-            <img
-              class="cart-item-image"
-              src="${product.image}"
-              alt="${product.name}"
+          <div class="cart-item-controls">
+            <button
+              type="button"
+              onclick="changeQuantity(${item.id}, '${item.size}', -1)"
             >
+              −
+            </button>
 
-            <div class="cart-item-info">
+            <span>${item.quantity}</span>
 
-              <h3>
-                ${product.name}
-              </h3>
+            <button
+              type="button"
+              onclick="changeQuantity(${item.id}, '${item.size}', 1)"
+            >
+              +
+            </button>
 
-              <p>
-                SIZE: ${item.size}
-              </p>
-
-              <div class="quantity">
-
-                <button
-                  onclick="changeQuantity(
-                    ${item.id},
-                    '${item.size}',
-                    -1
-                  )"
-                >
-                  −
-                </button>
-
-                <span>
-                  ${item.quantity}
-                </span>
-
-                <button
-                  onclick="changeQuantity(
-                    ${item.id},
-                    '${item.size}',
-                    1
-                  )"
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-            <div class="cart-item-right">
-
-              <strong>
-                ${formatPrice(itemTotal)}
-              </strong>
-
-              <br>
-
-              <button
-                class="remove-item"
-                onclick="removeFromCart(
-                  ${item.id},
-                  '${item.size}'
-                )"
-              >
-                REMOVE
-              </button>
-
-            </div>
-
+            <button
+              class="cart-remove"
+              type="button"
+              onclick="removeFromCart(${item.id}, '${item.size}')"
+            >
+              REMOVE
+            </button>
           </div>
-        `;
-
-      })
-      .join("");
-
-
-  totalElement.textContent =
-    formatPrice(total);
+        </div>
+      </div>
+    `)
+    .join("");
 }
 
-
-/* =========================
-   QUANTITY
-========================= */
-
-function changeQuantity(
-  id,
-  size,
-  amount
-) {
-
-  const item =
-    cart.find(
-      item =>
-        item.id === id &&
-        item.size === size
-    );
+function changeQuantity(id, size, amount) {
+  const item = cart.find(
+    product =>
+      product.id === Number(id) &&
+      product.size === size
+  );
 
   if (!item) return;
 
-  item.quantity += amount;
-
+  item.quantity += Number(amount);
 
   if (item.quantity <= 0) {
-
     cart = cart.filter(
-      cartItem =>
+      product =>
         !(
-          cartItem.id === id &&
-          cartItem.size === size
+          product.id === Number(id) &&
+          product.size === size
         )
     );
+
+    showToast("Item removed from cart");
   }
 
-
   saveCart();
-
   updateCart();
 }
 
-
-/* =========================
-   REMOVE ITEM
-========================= */
-
 function removeFromCart(id, size) {
-
   cart = cart.filter(
     item =>
       !(
-        item.id === id &&
+        item.id === Number(id) &&
         item.size === size
       )
   );
 
   saveCart();
-
   updateCart();
 
-  showToast("REMOVED FROM CART");
+  showToast("Item removed from cart");
 }
 
-
-/* =========================
-   OPEN CART
-========================= */
+/* =========================================================
+   CART DRAWER
+========================================================= */
 
 function openCart() {
-
-  document
-    .getElementById("cartDrawer")
-    .classList.add("open");
-
-  document
-    .getElementById("cartOverlay")
-    .classList.add("open");
-
-  document.body.classList.add("no-scroll");
-}
-
-
-/* =========================
-   CLOSE CART
-========================= */
-
-function closeCart() {
-
-  document
-    .getElementById("cartDrawer")
-    .classList.remove("open");
-
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("open");
-
-  document.body.classList.remove("no-scroll");
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function openSearch() {
+  const cartDrawer =
+    $("#cartDrawer") ||
+    $(".cart-drawer") ||
+    $(".cart-panel");
 
   const overlay =
-    document.getElementById(
-      "searchOverlay"
-    );
+    $("#cartOverlay") ||
+    $(".cart-overlay");
 
-  overlay.classList.add("open");
-
-  document.body.classList.add("no-scroll");
-
-  setTimeout(() => {
-
-    document
-      .getElementById("searchInput")
-      .focus();
-
-  }, 100);
-}
-
-
-function closeSearch() {
-
-  document
-    .getElementById("searchOverlay")
-    .classList.remove("open");
-
-  document.body.classList.remove("no-scroll");
-
-  document
-    .getElementById("searchInput")
-    .value = "";
-
-  document
-    .getElementById("searchResults")
-    .innerHTML = "";
-}
-
-
-function searchProducts(query) {
-
-  const results =
-    products.filter(product =>
-
-      `${product.name} ${product.categoryName}`
-        .toLowerCase()
-        .includes(
-          query.toLowerCase()
-        )
-
-    );
-
-
-  document
-    .getElementById("searchResults")
-    .innerHTML = results
-      .map(createProductCard)
-      .join("");
-}
-
-
-document
-  .getElementById("searchInput")
-  ?.addEventListener(
-    "input",
-    event => {
-      searchProducts(
-        event.target.value
-      );
-    }
-  );
-
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-function toggleMobileMenu() {
-
-  document
-    .getElementById("mobileMenu")
-    .classList.toggle("open");
-}
-
-
-function closeMobileMenu() {
-
-  document
-    .getElementById("mobileMenu")
-    .classList.remove("open");
-}
-
-
-/* =========================
-   SCROLL TO SHOP
-========================= */
-
-function scrollToShop() {
-
-  document
-    .getElementById("shop")
-    ?.scrollIntoView({
-      behavior: "smooth"
-    });
-}
-
-
-/* =========================
-   NEWSLETTER
-========================= */
-
-document
-  .getElementById("newsletterForm")
-  ?.addEventListener(
-    "submit",
-    event => {
-
-      event.preventDefault();
-
-      const email =
-        document
-          .getElementById(
-            "newsletterEmail"
-          )
-          .value
-          .trim();
-
-      if (!email) return;
-
-      showToast(
-        "YOU'RE ON THE LIST"
-      );
-
-      event.target.reset();
-    }
-  );
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
-function checkout() {
-
-  if (!cart.length) {
-
-    showToast(
-      "YOUR CART IS EMPTY"
-    );
-
-    return;
+  if (cartDrawer) {
+    cartDrawer.classList.add("active");
+    cartDrawer.classList.add("open");
   }
 
-  showToast(
-    "CHECKOUT COMING SOON"
-  );
-}
-
-
-/* =========================
-   TOAST
-========================= */
-
-let toastTimer;
-
-
-function showToast(message) {
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent =
-    message;
-
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer =
-    setTimeout(() => {
-
-      toast.classList.remove(
-        "show"
-      );
-
-    }, 2200);
-}
-
-
-/* =========================
-   ESCAPE KEY
-========================= */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (event.key === "Escape") {
-
-      closeSearch();
-
-      closeProductModal();
-
-      closeCart();
-
-      closeMobileMenu();
-    }
-
+  if (overlay) {
+    overlay.classList.add("active");
+    overlay.classList.add("open");
   }
-);
 
+  document.body.classList.add("cart-open");
+  updateCart();
+}
 
-/* =========================
-   CLOSE MODAL ON BACKDROP
-========================= */
+function closeCart() {
+  const cartDrawer =
+    $("#cartDrawer") ||
+    $(".cart-drawer") ||
+    $(".cart-panel");
 
-document
-  .getElementById("productModal")
-  ?.addEventListener(
-    "click",
-    event => {
+  const overlay =
+    $("#cartOverlay") ||
+    $(".cart-overlay");
 
-      if (
-        event.target.id ===
-        "productModal"
-      ) {
-        closeProductModal();
-      }
+  if (cartDrawer) {
+    cartDrawer.classList.remove("active");
+    cartDrawer.classList.remove("open");
+  }
 
-    }
-  );
+  if (overlay) {
+    overlay.classList.remove("active");
+    overlay.classList.remove("open");
+  }
 
+  document.body.classList.remove("cart-open");
+}
 
-/* =========================
-   START WEBSITE
-========================= */
+/* =========================================================
+   SEARCH
+========================================================= */
 
-loadCart();
+function openSearch() {
+  const search =
+    $("#searchOverlay") ||
+    $(".search-overlay");
 
-renderProducts();
+  if (!search) return;
 
-renderNewProducts();
-
-updateCart();
+  search.classList.
