@@ -1,586 +1,957 @@
 /* =========================================================
    ZYVON — SCRIPT.JS
-   Complete replacement
-   Product images + filters + search + cart + modal
+   20 PRODUCTS + IMG.BB IMAGES
+========================================================= */
+
+
+/* =========================================================
+   PRODUCT DATA
 ========================================================= */
 
 const products = [
+
+  /* =========================
+     TEES — 5
+  ========================= */
+
   {
     id: 1,
-    name: "Essential Black Tee",
+    name: "Free Will Oversized Tee",
     category: "tees",
-    price: 699,
-    image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
-    description: "A clean everyday streetwear essential."
+    categoryLabel: "TEES",
+    price: 799,
+    image: "https://i.ibb.co/Y7gPznnb/DSC-5073-1.jpg",
+    description: "A clean oversized streetwear tee with a modern silhouette."
   },
+
   {
     id: 2,
-    name: "Urban White Tee",
+    name: "Free Will Graphic Tee",
     category: "tees",
-    price: 699,
-    image:
-      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
-    description: "Minimal design with a modern streetwear feel."
+    categoryLabel: "TEES",
+    price: 799,
+    image: "https://i.ibb.co/qL53tMbR/hiyest-freewill-or-destiny-oversized-black-t-shirt-frontprint-960x1200-jpg.webp",
+    description: "Statement graphic design with a relaxed streetwear fit."
   },
+
   {
     id: 3,
-    name: "Oversized Street Tee",
-    category: "oversized",
-    price: 799,
-    image:
-      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
-    description: "Relaxed oversized fit built for everyday wear."
+    name: "Minimal Graphic Tee",
+    category: "tees",
+    categoryLabel: "TEES",
+    price: 749,
+    image: "https://i.ibb.co/HTSm2znJ/75715204-2e04-423f-ba8b-051961831a0f.webp",
+    description: "Minimal graphic detailing with an everyday premium fit."
   },
+
   {
     id: 4,
-    name: "Classic Oversized",
-    category: "oversized",
-    price: 799,
-    image:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
-    description: "A simple oversized silhouette with a premium look."
+    name: "Heavy Faded Tee",
+    category: "tees",
+    categoryLabel: "TEES",
+    price: 849,
+    image: "https://i.ibb.co/tpSXgK2g/5082-HEAVY-FADED-TEE-FADED-BLACK.png",
+    description: "Heavyweight faded finish designed for a modern streetwear look."
   },
+
   {
     id: 5,
-    name: "ZYVON Heavy Hoodie",
-    category: "hoodies",
-    price: 1299,
-    image:
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
-    description: "Heavyweight hoodie designed for a bold streetwear look."
+    name: "Sunlit Essential Tee",
+    category: "tees",
+    categoryLabel: "TEES",
+    price: 699,
+    image: "https://i.ibb.co/qF71LK6H/sunlit-hanging-t-shirt-mockup-soft-shadows-on-textured-wall-minimalist-and-natural-aesthetic-0741-8.jpg",
+    description: "Minimal everyday tee with a clean and versatile aesthetic."
   },
+
+
+  /* =========================
+     OVERSIZED — 5
+  ========================= */
+
   {
     id: 6,
-    name: "Minimal Hoodie",
-    category: "hoodies",
-    price: 1199,
-    image:
-      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=85",
-    description: "Clean minimal hoodie for everyday styling."
+    name: "Washed Black Oversized Tee",
+    category: "oversized",
+    categoryLabel: "OVERSIZED",
+    price: 899,
+    image: "https://i.ibb.co/Z6KZYb58/pexels-bandar-baant-2160637741-37482328.jpg",
+    description: "Relaxed heavyweight oversized silhouette with a washed finish."
   },
+
   {
     id: 7,
-    name: "Streetwear Cap",
-    category: "accessories",
-    price: 499,
-    image:
-      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
-    description: "Minimal embroidered-style streetwear cap."
+    name: "Urban Oversized Tee",
+    category: "oversized",
+    categoryLabel: "OVERSIZED",
+    price: 899,
+    image: "https://i.ibb.co/gb22DmMK/pexels-bandar-baant-2160637741-36986582.jpg",
+    description: "Modern oversized streetwear fit built for everyday wear."
   },
+
   {
     id: 8,
-    name: "Classic Tote Bag",
+    name: "Editorial Oversized Tee",
+    category: "oversized",
+    categoryLabel: "OVERSIZED",
+    price: 949,
+    image: "https://i.ibb.co/Jjh45vff/pexels-bandar-baant-2160637741-36942018.jpg",
+    description: "Bold oversized proportions with a contemporary editorial feel."
+  },
+
+  {
+    id: 9,
+    name: "Tonal Thrash Boxy Tee",
+    category: "oversized",
+    categoryLabel: "OVERSIZED",
+    price: 949,
+    image: "https://i.ibb.co/yFk2y8Rz/tonal-thrash-boxy-tee-s.png",
+    description: "Boxy heavyweight tee with tonal graphic detailing."
+  },
+
+  {
+    id: 10,
+    name: "Archive Oversized Tee",
+    category: "oversized",
+    categoryLabel: "OVERSIZED",
+    price: 899,
+    image: "https://i.ibb.co/fzgHHLNV/ben-iwara-3-QIjn-DIcxu-M-unsplash.jpg",
+    description: "Relaxed archive-inspired oversized streetwear silhouette."
+  },
+
+
+  /* =========================
+     HOODIES — 5
+  ========================= */
+
+  {
+    id: 11,
+    name: "Essential Black Hoodie",
+    category: "hoodies",
+    categoryLabel: "HOODIES",
+    price: 1299,
+    image: "https://i.ibb.co/4w6FdZPr/pexels-airamdphoto-9649527.jpg",
+    description: "Clean oversized hoodie built around a timeless black silhouette."
+  },
+
+  {
+    id: 12,
+    name: "Heavyweight Street Hoodie",
+    category: "hoodies",
+    categoryLabel: "HOODIES",
+    price: 1399,
+    image: "https://i.ibb.co/HTMF7bJW/josh-marty-D-oceq6l5h-M-unsplash.jpg",
+    description: "Heavyweight streetwear hoodie with a relaxed premium fit."
+  },
+
+  {
+    id: 13,
+    name: "Urban Graphic Hoodie",
+    category: "hoodies",
+    categoryLabel: "HOODIES",
+    price: 1399,
+    image: "https://i.ibb.co/MyY3BHHB/pexels-ana-maria-arroyave-1851916642-28701959.jpg",
+    description: "Modern graphic hoodie designed for an understated street look."
+  },
+
+  {
+    id: 14,
+    name: "Minimal Grey Hoodie",
+    category: "hoodies",
+    categoryLabel: "HOODIES",
+    price: 1299,
+    image: "https://i.ibb.co/ZRhv4nyW/michael-kyule-Nq-j-FJtq-Gu-Y-unsplash.jpg",
+    description: "Minimal hoodie with a relaxed silhouette and clean finish."
+  },
+
+  {
+    id: 15,
+    name: "Archive Hoodie",
+    category: "hoodies",
+    categoryLabel: "HOODIES",
+    price: 1499,
+    image: "https://i.ibb.co/V0T4W5KZ/actions-b24ec891-4e9c-4ea8-bd95-66b8b6bd9f4d.jpg",
+    description: "Archive-inspired hoodie with a distinctive streetwear aesthetic."
+  },
+
+
+  /* =========================
+     ACCESSORIES — 5
+  ========================= */
+
+  {
+    id: 16,
+    name: "Canvas Graphic Tote",
     category: "accessories",
-    price: 399,
-    image:
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
-    description: "Simple everyday tote with a clean streetwear aesthetic."
+    categoryLabel: "ACCESSORIES",
+    price: 599,
+    image: "https://i.ibb.co/NPwbjyb/1515373-carhartt-wip-canvas-graphic-tote-bag-label-script-print-black.jpg",
+    description: "Structured black canvas tote designed for everyday carry."
+  },
+
+  {
+    id: 17,
+    name: "Minimal Street Tote",
+    category: "accessories",
+    categoryLabel: "ACCESSORIES",
+    price: 599,
+    image: "https://i.ibb.co/d4D1fCxN/871dff03-ccb0-45a1-92e0-ed530a8b08f8.png",
+    description: "Simple black tote with a clean minimalist aesthetic."
+  },
+
+  {
+    id: 18,
+    name: "Graphic Canvas Tote",
+    category: "accessories",
+    categoryLabel: "ACCESSORIES",
+    price: 649,
+    image: "https://i.ibb.co/spdJk8VX/1a13b80dbd0e9f943911a69f6fc89a66c33ee246-Janosch-Presents-32-Posting-3-a9dfd837-5787-47fe-9205-57d63.jpg",
+    description: "Graphic canvas tote with a distinctive contemporary look."
+  },
+
+  {
+    id: 19,
+    name: "Black Everyday Tote",
+    category: "accessories",
+    categoryLabel: "ACCESSORIES",
+    price: 549,
+    image: "https://i.ibb.co/ZkQ6BSX/5c311613b196db5ce1ea5c328ae7b37e.jpg",
+    description: "Minimal everyday tote designed for a clean streetwear wardrobe."
+  },
+
+  {
+    id: 20,
+    name: "Oversized Black Tote",
+    category: "accessories",
+    categoryLabel: "ACCESSORIES",
+    price: 699,
+    image: "https://i.ibb.co/XZq21dHY/1-R-Everyday-Oversized-Tote-Black.jpg",
+    description: "Large-format black tote with a practical everyday silhouette."
   }
+
 ];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let cart = [];
+
+try {
+  cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
+} catch (error) {
+  cart = [];
+}
+
+let selectedProduct = null;
+let selectedSize = null;
+let activeCategory = "all";
+let currentProducts = [...products];
+
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const productGrid = document.getElementById("productGrid");
-const newProducts = document.getElementById("newProducts");
+let productGrid;
+let newProducts;
 
-const productModal = document.getElementById("productModal");
-const modalImage = document.getElementById("modalImage");
-const modalName = document.getElementById("modalName");
-const modalCategory = document.getElementById("modalCategory");
-const modalPrice = document.getElementById("modalPrice");
-const modalDescription = document.getElementById("modalDescription");
+let productModal;
+let modalImage;
+let modalCategory;
+let modalName;
+let modalPrice;
+let modalDescription;
 
-const cartOverlay = document.getElementById("cartOverlay");
-const cartDrawer = document.getElementById("cartDrawer");
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
+let cartDrawer;
+let cartOverlay;
+let cartItems;
+let cartTotal;
+let cartCount;
 
-const toast = document.getElementById("toast");
+let searchOverlay;
+let searchInput;
+let searchResults;
 
-const searchOverlay = document.getElementById("searchOverlay");
-const searchInput = document.getElementById("searchInput");
-const searchResults = document.getElementById("searchResults");
+let mobileMenu;
+let toast;
+let newsletterForm;
+
 
 /* =========================================================
-   CART
+   INITIALIZE
 ========================================================= */
 
-let cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
+function initializeZYVON() {
 
-function saveCart() {
-  localStorage.setItem("zyvonCart", JSON.stringify(cart));
+  productGrid = document.getElementById("productGrid");
+  newProducts = document.getElementById("newProducts");
+
+  productModal = document.getElementById("productModal");
+  modalImage = document.getElementById("modalImage");
+  modalCategory = document.getElementById("modalCategory");
+  modalName = document.getElementById("modalName");
+  modalPrice = document.getElementById("modalPrice");
+  modalDescription = document.getElementById("modalDescription");
+
+  cartDrawer = document.getElementById("cartDrawer");
+  cartOverlay = document.getElementById("cartOverlay");
+  cartItems = document.getElementById("cartItems");
+  cartTotal = document.getElementById("cartTotal");
+  cartCount = document.getElementById("cartCount");
+
+  searchOverlay = document.getElementById("searchOverlay");
+  searchInput = document.getElementById("searchInput");
+  searchResults = document.getElementById("searchResults");
+
+  mobileMenu = document.getElementById("mobileMenu");
+  toast = document.getElementById("toast");
+
+  newsletterForm = document.getElementById("newsletterForm");
+
+
+  /* Render products */
+
+  renderProducts(products);
+  renderNewArrivals();
+  updateCart();
+
+
+  /* Search */
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      searchProducts(this.value);
+    });
+  }
+
+
+  /* Newsletter */
+
+  if (newsletterForm) {
+
+    newsletterForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      const emailInput =
+        document.getElementById("newsletterEmail");
+
+      const email =
+        emailInput ? emailInput.value.trim() : "";
+
+      if (!email) return;
+
+      showToast("YOU'RE ON THE LIST.");
+
+      newsletterForm.reset();
+
+    });
+
+  }
+
+
+  /* Escape key */
+
+  document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+
+      if (productModal) {
+        productModal.classList.remove("open");
+      }
+
+      if (searchOverlay) {
+        searchOverlay.classList.remove("open");
+      }
+
+      if (cartDrawer) {
+        cartDrawer.classList.remove("open");
+      }
+
+      if (cartOverlay) {
+        cartOverlay.classList.remove("open");
+      }
+
+      if (mobileMenu) {
+        mobileMenu.classList.remove("open");
+      }
+
+      document.body.style.overflow = "";
+
+    }
+
+  });
+
 }
 
+
 /* =========================================================
-   FORMAT PRICE
+   PRICE FORMAT
 ========================================================= */
 
 function formatPrice(price) {
-  return `₹${price.toLocaleString("en-IN")}`;
+  return "₹" + Number(price).toLocaleString("en-IN");
 }
+
+
+/* =========================================================
+   IMAGE ERROR
+========================================================= */
+
+function handleImageError(img) {
+
+  if (!img) return;
+
+  /*
+    Stop infinite error loops.
+  */
+
+  img.onerror = null;
+
+  /*
+    Use a simple inline fallback.
+    Successful ImageBB images are NOT changed.
+  */
+
+  img.src =
+    "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg"
+           width="600"
+           height="750"
+           viewBox="0 0 600 750">
+        <rect width="600" height="750" fill="#111111"/>
+        <text x="300"
+              y="360"
+              text-anchor="middle"
+              fill="#777777"
+              font-family="Arial"
+              font-size="22">
+          ZYVON
+        </text>
+        <text x="300"
+              y="395"
+              text-anchor="middle"
+              fill="#555555"
+              font-family="Arial"
+              font-size="12">
+          IMAGE UNAVAILABLE
+        </text>
+      </svg>
+    `);
+
+  img.style.objectFit = "cover";
+}
+
 
 /* =========================================================
    PRODUCT CARD
 ========================================================= */
 
 function createProductCard(product) {
+
   return `
-    <article class="product-card" data-id="${product.id}">
+    <article
+      class="product-card"
+      onclick="openProductModal(${product.id})"
+    >
+
       <div class="product-image">
+
         <img
           src="${product.image}"
           alt="${product.name}"
           loading="lazy"
-          onerror="this.onerror=null;this.src='https://placehold.co/900x1100/f1f1f1/111111?text=ZYVON';"
+          onerror="handleImageError(this)"
         >
 
-        <button
-          class="product-view"
-          onclick="openProduct(${product.id})"
-          aria-label="View ${product.name}"
-        >
-          VIEW
-        </button>
       </div>
 
       <div class="product-info">
-        <span class="product-category">${product.category}</span>
-        <h3>${product.name}</h3>
-        <p>${formatPrice(product.price)}</p>
+
+        <div class="product-category">
+          ${product.categoryLabel}
+        </div>
+
+        <div class="product-name">
+          ${product.name}
+        </div>
+
+        <div class="product-price">
+          ${formatPrice(product.price)}
+        </div>
+
       </div>
+
     </article>
   `;
 }
+
 
 /* =========================================================
    RENDER PRODUCTS
 ========================================================= */
 
-function renderProducts(list = products) {
+function renderProducts(list = currentProducts) {
+
   if (!productGrid) return;
 
-  productGrid.innerHTML = list.map(createProductCard).join("");
+  if (!list || list.length === 0) {
+
+    productGrid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        padding:50px 0;
+        opacity:.5;
+        font-size:13px;
+      ">
+        NO PRODUCTS FOUND.
+      </div>
+    `;
+
+    return;
+  }
+
+  productGrid.innerHTML =
+    list.map(createProductCard).join("");
 }
+
 
 /* =========================================================
    NEW ARRIVALS
 ========================================================= */
 
 function renderNewArrivals() {
+
   if (!newProducts) return;
 
-  const latest = products.slice(0, 4);
+  const newItems = products.slice(0, 4);
 
-  newProducts.innerHTML = latest.map(createProductCard).join("");
+  newProducts.innerHTML =
+    newItems.map(createProductCard).join("");
 }
+
 
 /* =========================================================
-   FILTERS
+   FILTER PRODUCTS
 ========================================================= */
 
-function setupFilters() {
-  const filterButtons = document.querySelectorAll("[data-filter]");
+function filterProducts(category, button = null) {
 
-  filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
+  activeCategory = category;
 
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
+  if (category === "all") {
 
-      if (filter === "all") {
-        renderProducts(products);
-      } else {
-        const filtered = products.filter(
-          product => product.category === filter
-        );
+    currentProducts = [...products];
 
-        renderProducts(filtered);
-      }
+  } else {
+
+    currentProducts =
+      products.filter(function (product) {
+        return product.category === category;
+      });
+
+  }
+
+  renderProducts(currentProducts);
+
+
+  /* Update filter buttons */
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(function (btn) {
+      btn.classList.remove("active");
     });
-  });
+
+
+  if (button) {
+
+    button.classList.add("active");
+
+  } else {
+
+    document
+      .querySelectorAll(".filter-btn")
+      .forEach(function (btn) {
+
+        const text =
+          btn.textContent
+            .trim()
+            .toLowerCase();
+
+        if (text === category) {
+          btn.classList.add("active");
+        }
+
+      });
+
+  }
+
+
+  /* Category card click */
+
+  if (!button && category !== "all") {
+
+    const shopSection =
+      document.getElementById("shop");
+
+    if (shopSection) {
+
+      shopSection.scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+  }
+
 }
+
 
 /* =========================================================
    PRODUCT MODAL
 ========================================================= */
 
-function openProduct(id) {
-  const product = products.find(item => item.id === id);
+function openProductModal(productId) {
+
+  const product =
+    products.find(function (p) {
+      return p.id === Number(productId);
+    });
 
   if (!product || !productModal) return;
 
+  selectedProduct = product;
+  selectedSize = null;
+
+
   if (modalImage) {
+
+    modalImage.onerror = null;
+
     modalImage.src = product.image;
     modalImage.alt = product.name;
 
     modalImage.onerror = function () {
-      this.onerror = null;
-      this.src =
-        "https://placehold.co/900x1100/f1f1f1/111111?text=ZYVON";
+      handleImageError(this);
     };
+
   }
 
-  if (modalName) modalName.textContent = product.name;
-  if (modalCategory) modalCategory.textContent = product.category;
-  if (modalPrice) modalPrice.textContent = formatPrice(product.price);
-  if (modalDescription) modalDescription.textContent = product.description;
 
-  productModal.classList.add("active");
-  document.body.classList.add("modal-open");
+  if (modalCategory) {
+    modalCategory.textContent =
+      product.categoryLabel;
+  }
 
-  productModal.dataset.productId = product.id;
+  if (modalName) {
+    modalName.textContent =
+      product.name;
+  }
+
+  if (modalPrice) {
+    modalPrice.textContent =
+      formatPrice(product.price);
+  }
+
+  if (modalDescription) {
+    modalDescription.textContent =
+      product.description;
+  }
+
+
+  document
+    .querySelectorAll(".sizes button")
+    .forEach(function (btn) {
+      btn.classList.remove("selected");
+    });
+
+
+  productModal.classList.add("open");
+
+  document.body.style.overflow = "hidden";
 }
 
-function closeProduct() {
-  if (!productModal) return;
-
-  productModal.classList.remove("active");
-  document.body.classList.remove("modal-open");
-}
-
-window.openProduct = openProduct;
-window.closeProduct = closeProduct;
 
 /* =========================================================
-   MODAL CLOSE
+   CLOSE PRODUCT MODAL
 ========================================================= */
 
-document.addEventListener("click", event => {
-  if (!productModal) return;
+function closeProductModal() {
 
-  if (
-    event.target.matches("[data-close-modal]") ||
-    event.target === productModal
-  ) {
-    closeProduct();
+  if (productModal) {
+    productModal.classList.remove("open");
   }
-});
+
+  document.body.style.overflow = "";
+
+  selectedProduct = null;
+  selectedSize = null;
+}
+
+
+/* =========================================================
+   SIZE
+========================================================= */
+
+function selectSize(size, button) {
+
+  selectedSize = size;
+
+  document
+    .querySelectorAll(".sizes button")
+    .forEach(function (btn) {
+      btn.classList.remove("selected");
+    });
+
+  if (button) {
+    button.classList.add("selected");
+  }
+}
+
 
 /* =========================================================
    ADD TO CART
 ========================================================= */
 
-function addToCart(id) {
-  const product = products.find(item => item.id === id);
+function addSelectedProductToCart() {
 
-  if (!product) return;
+  if (!selectedProduct) return;
 
-  const existing = cart.find(item => item.id === id);
+  if (!selectedSize) {
+
+    showToast("PLEASE SELECT A SIZE.");
+
+    return;
+  }
+
+
+  const existing =
+    cart.find(function (item) {
+
+      return (
+        item.id === selectedProduct.id &&
+        item.size === selectedSize
+      );
+
+    });
+
 
   if (existing) {
+
     existing.quantity += 1;
+
   } else {
+
     cart.push({
-      ...product,
+
+      id: selectedProduct.id,
+      name: selectedProduct.name,
+      category: selectedProduct.category,
+      price: selectedProduct.price,
+      image: selectedProduct.image,
+      size: selectedSize,
       quantity: 1
+
     });
+
   }
+
 
   saveCart();
-  renderCart();
-  showToast(`${product.name} added to cart`);
+  updateCart();
 
-  closeProduct();
+  closeProductModal();
+  openCart();
+
+  showToast("ADDED TO CART.");
 }
 
+
 /* =========================================================
-   MODAL ADD BUTTON
+   SAVE CART
 ========================================================= */
 
-document.addEventListener("click", event => {
-  const button = event.target.closest("[data-add-cart]");
+function saveCart() {
 
-  if (!button) return;
+  try {
 
-  const id = Number(productModal?.dataset.productId);
+    localStorage.setItem(
+      "zyvonCart",
+      JSON.stringify(cart)
+    );
 
-  if (id) {
-    addToCart(id);
+  } catch (error) {
+
+    console.warn("Could not save cart.");
+
   }
-});
+
+}
+
 
 /* =========================================================
-   CART RENDER
+   UPDATE CART
 ========================================================= */
 
-function renderCart() {
-  if (!cartItems || !cartTotal) return;
+function updateCart() {
+
+  if (!cartItems) return;
+
 
   if (cart.length === 0) {
+
     cartItems.innerHTML = `
-      <div class="empty-cart">
-        <p>Your cart is empty.</p>
+      <div style="
+        text-align:center;
+        padding:60px 10px;
+        opacity:.5;
+        font-size:12px;
+        letter-spacing:1px;
+      ">
+        YOUR CART IS EMPTY.
       </div>
     `;
 
-    cartTotal.textContent = "₹0";
-    updateCartCount();
-    return;
-  }
+  } else {
 
-  cartItems.innerHTML = cart
-    .map(item => {
-      return `
-        <div class="cart-item">
+    cartItems.innerHTML =
+      cart.map(function (item, index) {
 
-          <img
-            src="${item.image}"
-            alt="${item.name}"
-            onerror="this.onerror=null;this.src='https://placehold.co/200x250/f1f1f1/111111?text=ZYVON';"
-          >
+        return `
 
-          <div class="cart-item-info">
-            <h4>${item.name}</h4>
-            <p>${formatPrice(item.price)}</p>
+          <div class="cart-item">
 
-            <div class="cart-controls">
-              <button onclick="changeQuantity(${item.id}, -1)">−</button>
-              <span>${item.quantity}</span>
-              <button onclick="changeQuantity(${item.id}, 1)">+</button>
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+              onerror="handleImageError(this)"
+            >
+
+            <div>
+
+              <div class="cart-item-name">
+                ${item.name}
+              </div>
+
+              <div class="cart-item-size">
+                SIZE: ${item.size}
+              </div>
+
+              <div class="cart-item-price">
+                ${formatPrice(item.price)}
+              </div>
+
+              <div class="cart-quantity">
+
+                <button
+                  onclick="changeQuantity(${index}, -1)"
+                >
+                  −
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  onclick="changeQuantity(${index}, 1)"
+                >
+                  +
+                </button>
+
+              </div>
+
             </div>
+
+            <button
+              class="remove-item"
+              onclick="removeCartItem(${index})"
+            >
+              REMOVE
+            </button>
+
           </div>
 
-          <button
-            class="cart-remove"
-            onclick="removeFromCart(${item.id})"
-            aria-label="Remove ${item.name}"
-          >
-            ×
-          </button>
+        `;
 
-        </div>
-      `;
-    })
-    .join("");
+      }).join("");
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  }
 
-  cartTotal.textContent = formatPrice(total);
 
-  updateCartCount();
+  const total =
+    cart.reduce(function (sum, item) {
+
+      return sum +
+        Number(item.price) *
+        Number(item.quantity);
+
+    }, 0);
+
+
+  const count =
+    cart.reduce(function (sum, item) {
+
+      return sum +
+        Number(item.quantity);
+
+    }, 0);
+
+
+  if (cartTotal) {
+    cartTotal.textContent =
+      formatPrice(total);
+  }
+
+  if (cartCount) {
+    cartCount.textContent =
+      count;
+  }
+
 }
 
+
 /* =========================================================
-   QUANTITY
+   CHANGE QUANTITY
 ========================================================= */
 
-function changeQuantity(id, amount) {
-  const item = cart.find(product => product.id === id);
+function changeQuantity(index, amount) {
 
-  if (!item) return;
+  if (!cart[index]) return;
 
-  item.quantity += amount;
+  cart[index].quantity += amount;
 
-  if (item.quantity <= 0) {
-    cart = cart.filter(product => product.id !== id);
+  if (cart[index].quantity <= 0) {
+
+    cart.splice(index, 1);
+
   }
 
   saveCart();
-  renderCart();
+  updateCart();
 }
 
-window.changeQuantity = changeQuantity;
 
 /* =========================================================
-   REMOVE CART ITEM
+   REMOVE ITEM
 ========================================================= */
 
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
+function removeCartItem(index) {
+
+  if (!cart[index]) return;
+
+  cart.splice(index, 1);
 
   saveCart();
-  renderCart();
+  updateCart();
+
+  showToast("ITEM REMOVED.");
 }
 
-window.removeFromCart = removeFromCart;
 
 /* =========================================================
-   CART COUNT
-========================================================= */
-
-function updateCartCount() {
-  const count = cart.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
-  document.querySelectorAll(".cart-count").forEach(element => {
-    element.textContent = count;
-    element.style.display = count > 0 ? "flex" : "none";
-  });
-}
-
-/* =========================================================
-   OPEN / CLOSE CART
-========================================================= */
-
-function openCart() {
-  if (!cartOverlay) return;
-
-  cartOverlay.classList.add("active");
-  document.body.classList.add("cart-open");
-
-  renderCart();
-}
-
-function closeCart() {
-  if (!cartOverlay) return;
-
-  cartOverlay.classList.remove("active");
-  document.body.classList.remove("cart-open");
-}
-
-window.openCart = openCart;
-window.closeCart = closeCart;
-
-/* =========================================================
-   CART BUTTONS
-========================================================= */
-
-document.addEventListener("click", event => {
-  const cartButton = event.target.closest(
-    "#cartButton, .cart-button, [data-cart]"
-  );
-
-  if (cartButton) {
-    openCart();
-  }
-
-  const closeButton = event.target.closest(
-    "#closeCart, [data-close-cart]"
-  );
-
-  if (closeButton) {
-    closeCart();
-  }
-
-  if (event.target === cartOverlay) {
-    closeCart();
-  }
-});
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-function openSearch() {
-  if (!searchOverlay) return;
-
-  searchOverlay.classList.add("active");
-
-  setTimeout(() => {
-    searchInput?.focus();
-  }, 100);
-}
-
-function closeSearch() {
-  if (!searchOverlay) return;
-
-  searchOverlay.classList.remove("active");
-
-  if (searchInput) {
-    searchInput.value = "";
-  }
-
-  if (searchResults) {
-    searchResults.innerHTML = "";
-  }
-}
-
-window.openSearch = openSearch;
-window.closeSearch = closeSearch;
-
-/* =========================================================
-   SEARCH RESULTS
-========================================================= */
-
-function searchProducts(query) {
-  const text = query.trim().toLowerCase();
-
-  if (!searchResults) return;
-
-  if (!text) {
-    searchResults.innerHTML = "";
-    return;
-  }
-
-  const results = products.filter(product => {
-    return (
-      product.name.toLowerCase().includes(text) ||
-      product.category.toLowerCase().includes(text)
-    );
-  });
-
-  if (results.length === 0) {
-    searchResults.innerHTML = `
-      <div class="search-empty">
-        No products found.
-      </div>
-    `;
-    return;
-  }
-
-  searchResults.innerHTML = results
-    .map(product => {
-      return `
-        <button
-          class="search-result"
-          onclick="openProduct(${product.id}); closeSearch();"
-        >
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            onerror="this.onerror=null;this.src='https://placehold.co/120x150/f1f1f1/111111?text=ZYVON';"
-          >
-
-          <span>
-            <strong>${product.name}</strong>
-            <small>${formatPrice(product.price)}</small>
-          </span>
-        </button>
-      `;
-    })
-    .join("");
-}
-
-if (searchInput) {
-  searchInput.addEventListener("input", event => {
-    searchProducts(event.target.value);
-  });
-}
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(message) {
-  if (!toast) return;
-
-  toast.textContent = message;
-  toast.classList.add("active");
-
-  clearTimeout(window.zyvonToastTimer);
-
-  window.zyvonToastTimer = setTimeout(() => {
-    toast.classList.remove("active");
-  }, 2500);
-}
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-
-function toggleMobileMenu() {
-  if (!mobileMenu) return;
-
-  mobileMenu.classList.toggle("active
+   OP
