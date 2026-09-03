@@ -1421,3 +1421,29 @@ footer {
 
   .mobile-nav.open {
    
+/* =========================================================
+   ZYVON — PRODUCT IMAGE FORCE FIX
+========================================================= */
+
+.product-card {
+  overflow: hidden;
+}
+
+.product-image-wrap {
+  position: relative !important;
+  width: 100% !important;
+  height: 430px !important;
+  overflow: hidden !important;
+  background: #151515 !important;
+}
+
+.product-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
