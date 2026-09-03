@@ -1,7 +1,9 @@
 /* =========================================================
    ZYVON — SCRIPT.JS
-   20 PRODUCTS + IMG.BB IMAGES
+   Complete E-Commerce Functionality
+   20 Products • Cart • Search • Filters • Modal
 ========================================================= */
+
 
 /* =========================================================
    PRODUCT DATA
@@ -10,7 +12,7 @@
 const products = [
 
   /* =========================
-     TEES — 5
+     TEES
   ========================= */
 
   {
@@ -65,7 +67,7 @@ const products = [
 
 
   /* =========================
-     OVERSIZED — 5
+     OVERSIZED
   ========================= */
 
   {
@@ -120,7 +122,7 @@ const products = [
 
 
   /* =========================
-     HOODIES — 5
+     HOODIES
   ========================= */
 
   {
@@ -175,7 +177,7 @@ const products = [
 
 
   /* =========================
-     ACCESSORIES — 5
+     ACCESSORIES
   ========================= */
 
   {
@@ -235,17 +237,23 @@ const products = [
    STATE
 ========================================================= */
 
-let cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
+let cart = [];
+
+try {
+  cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
+  if (!Array.isArray(cart)) cart = [];
+} catch (error) {
+  cart = [];
+}
 
 let selectedProduct = null;
 let selectedSize = null;
-
 let activeCategory = "all";
 let currentProducts = [...products];
 
 
 /* =========================================================
-   ELEMENTS
+   DOM ELEMENTS
 ========================================================= */
 
 const productGrid = document.getElementById("productGrid");
@@ -271,13 +279,16 @@ const searchResults = document.getElementById("searchResults");
 const mobileMenu = document.getElementById("mobileMenu");
 const toast = document.getElementById("toast");
 
+const newsletterForm =
+  document.getElementById("newsletterForm");
+
 
 /* =========================================================
    PRICE FORMAT
 ========================================================= */
 
 function formatPrice(price) {
-  return "₹" + price.toLocaleString("en-IN");
+  return "₹" + Number(price).toLocaleString("en-IN");
 }
 
 
@@ -286,6 +297,9 @@ function formatPrice(price) {
 ========================================================= */
 
 function handleImageError(img) {
+
+  if (!img) return;
+
   img.onerror = null;
 
   img.src =
@@ -296,685 +310,4 @@ function handleImageError(img) {
 
 
 /* =========================================================
-   PRODUCT CARD
-========================================================= */
-
-function createProductCard(product) {
-
-  return `
-    <article
-      class="product-card"
-      onclick="openProductModal(${product.id})"
-    >
-
-      <div class="product-image">
-
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          loading="lazy"
-          onerror="handleImageError(this)"
-        >
-
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">
-          ${product.categoryLabel}
-        </div>
-
-        <div class="product-name">
-          ${product.name}
-        </div>
-
-        <div class="product-price">
-          ${formatPrice(product.price)}
-        </div>
-
-      </div>
-
-    </article>
-  `;
-}
-
-
-/* =========================================================
-   RENDER PRODUCTS
-========================================================= */
-
-function renderProducts(list = currentProducts) {
-
-  if (!productGrid) return;
-
-  if (list.length === 0) {
-
-    productGrid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:50px 0;
-        opacity:.5;
-        font-size:13px;
-      ">
-        NO PRODUCTS FOUND.
-      </div>
-    `;
-
-    return;
-  }
-
-  productGrid.innerHTML =
-    list.map(createProductCard).join("");
-}
-
-
-/* =========================================================
-   NEW ARRIVALS
-========================================================= */
-
-function renderNewArrivals() {
-
-  if (!newProducts) return;
-
-  const newItems = products.slice(0, 4);
-
-  newProducts.innerHTML =
-    newItems.map(createProductCard).join("");
-}
-
-
-/* =========================================================
-   FILTER PRODUCTS
-========================================================= */
-
-function filterProducts(category, button = null) {
-
-  activeCategory = category;
-
-  if (category === "all") {
-
-    currentProducts = [...products];
-
-  } else {
-
-    currentProducts =
-      products.filter(product =>
-        product.category === category
-      );
-
-  }
-
-  renderProducts(currentProducts);
-
-
-  /* Update filter buttons */
-
-  document
-    .querySelectorAll(".filter-btn")
-    .forEach(btn => {
-      btn.classList.remove("active");
-    });
-
-
-  if (button) {
-
-    button.classList.add("active");
-
-  } else {
-
-    document
-      .querySelectorAll(".filter-btn")
-      .forEach(btn => {
-
-        const text =
-          btn.textContent
-            .trim()
-            .toLowerCase();
-
-        if (text === category) {
-          btn.classList.add("active");
-        }
-
-      });
-
-  }
-
-
-  /* Scroll to shop when category cards are clicked */
-
-  const shopSection =
-    document.getElementById("shop");
-
-  if (
-    shopSection &&
-    button === null
-  ) {
-
-    shopSection.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  }
-
-}
-
-
-/* =========================================================
-   PRODUCT MODAL
-========================================================= */
-
-function openProductModal(productId) {
-
-  const product =
-    products.find(p => p.id === productId);
-
-  if (!product) return;
-
-  selectedProduct = product;
-  selectedSize = null;
-
-  modalImage.src = product.image;
-  modalImage.alt = product.name;
-
-  modalImage.onerror = function () {
-    handleImageError(this);
-  };
-
-  modalCategory.textContent =
-    product.categoryLabel;
-
-  modalName.textContent =
-    product.name;
-
-  modalPrice.textContent =
-    formatPrice(product.price);
-
-  modalDescription.textContent =
-    product.description;
-
-
-  document
-    .querySelectorAll(".sizes button")
-    .forEach(btn => {
-      btn.classList.remove("selected");
-    });
-
-
-  productModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-}
-
-
-/* =========================================================
-   CLOSE PRODUCT MODAL
-========================================================= */
-
-function closeProductModal() {
-
-  productModal.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-  selectedProduct = null;
-  selectedSize = null;
-
-}
-
-
-/* =========================================================
-   SIZE SELECTION
-========================================================= */
-
-function selectSize(size, button) {
-
-  selectedSize = size;
-
-  document
-    .querySelectorAll(".sizes button")
-    .forEach(btn => {
-      btn.classList.remove("selected");
-    });
-
-  button.classList.add("selected");
-
-}
-
-
-/* =========================================================
-   ADD PRODUCT TO CART
-========================================================= */
-
-function addSelectedProductToCart() {
-
-  if (!selectedProduct) return;
-
-  if (!selectedSize) {
-
-    showToast("PLEASE SELECT A SIZE.");
-
-    return;
-  }
-
-
-  const existing =
-    cart.find(item =>
-      item.id === selectedProduct.id &&
-      item.size === selectedSize
-    );
-
-
-  if (existing) {
-
-    existing.quantity += 1;
-
-  } else {
-
-    cart.push({
-
-      id: selectedProduct.id,
-
-      name: selectedProduct.name,
-
-      category: selectedProduct.category,
-
-      price: selectedProduct.price,
-
-      image: selectedProduct.image,
-
-      size: selectedSize,
-
-      quantity: 1
-
-    });
-
-  }
-
-
-  saveCart();
-
-  updateCart();
-
-  closeProductModal();
-
-  openCart();
-
-  showToast("ADDED TO CART.");
-
-}
-
-
-/* =========================================================
-   SAVE CART
-========================================================= */
-
-function saveCart() {
-
-  localStorage.setItem(
-    "zyvonCart",
-    JSON.stringify(cart)
-  );
-
-}
-
-
-/* =========================================================
-   UPDATE CART
-========================================================= */
-
-function updateCart() {
-
-  if (!cartItems) return;
-
-
-  if (cart.length === 0) {
-
-    cartItems.innerHTML = `
-      <div style="
-        text-align:center;
-        padding:60px 10px;
-        opacity:.5;
-        font-size:12px;
-        letter-spacing:1px;
-      ">
-        YOUR CART IS EMPTY.
-      </div>
-    `;
-
-  } else {
-
-    cartItems.innerHTML =
-      cart.map((item, index) => `
-
-        <div class="cart-item">
-
-          <img
-            src="${item.image}"
-            alt="${item.name}"
-            onerror="handleImageError(this)"
-          >
-
-          <div>
-
-            <div class="cart-item-name">
-              ${item.name}
-            </div>
-
-            <div class="cart-item-size">
-              SIZE: ${item.size}
-            </div>
-
-            <div class="cart-item-price">
-              ${formatPrice(item.price)}
-            </div>
-
-            <div class="cart-quantity">
-
-              <button
-                onclick="changeQuantity(${index}, -1)"
-              >
-                −
-              </button>
-
-              <span>
-                ${item.quantity}
-              </span>
-
-              <button
-                onclick="changeQuantity(${index}, 1)"
-              >
-                +
-              </button>
-
-            </div>
-
-          </div>
-
-          <button
-            class="remove-item"
-            onclick="removeCartItem(${index})"
-          >
-            REMOVE
-          </button>
-
-        </div>
-
-      `).join("");
-
-  }
-
-
-  const total =
-    cart.reduce(
-      (sum, item) =>
-        sum + item.price * item.quantity,
-      0
-    );
-
-
-  const count =
-    cart.reduce(
-      (sum, item) =>
-        sum + item.quantity,
-      0
-    );
-
-
-  if (cartTotal) {
-    cartTotal.textContent =
-      formatPrice(total);
-  }
-
-
-  if (cartCount) {
-    cartCount.textContent = count;
-  }
-
-}
-
-
-/* =========================================================
-   CHANGE QUANTITY
-========================================================= */
-
-function changeQuantity(index, amount) {
-
-  if (!cart[index]) return;
-
-  cart[index].quantity += amount;
-
-
-  if (cart[index].quantity <= 0) {
-
-    cart.splice(index, 1);
-
-  }
-
-
-  saveCart();
-
-  updateCart();
-
-}
-
-
-/* =========================================================
-   REMOVE CART ITEM
-========================================================= */
-
-function removeCartItem(index) {
-
-  cart.splice(index, 1);
-
-  saveCart();
-
-  updateCart();
-
-  showToast("ITEM REMOVED.");
-
-}
-
-
-/* =========================================================
-   OPEN CART
-========================================================= */
-
-function openCart() {
-
-  cartDrawer.classList.add("open");
-
-  cartOverlay.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-
-}
-
-
-/* =========================================================
-   CLOSE CART
-========================================================= */
-
-function closeCart() {
-
-  cartDrawer.classList.remove("open");
-
-  cartOverlay.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-}
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-function openSearch() {
-
-  searchOverlay.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-
-  setTimeout(() => {
-
-    if (searchInput) {
-      searchInput.focus();
-    }
-
-  }, 200);
-
-}
-
-
-function closeSearch() {
-
-  searchOverlay.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-  if (searchInput) {
-    searchInput.value = "";
-  }
-
-  if (searchResults) {
-    searchResults.innerHTML = "";
-  }
-
-}
-
-
-/* =========================================================
-   SEARCH PRODUCTS
-========================================================= */
-
-function searchProducts(query) {
-
-  const value =
-    query.trim().toLowerCase();
-
-
-  if (!value) {
-
-    searchResults.innerHTML = "";
-
-    return;
-  }
-
-
-  const results =
-    products.filter(product =>
-
-      product.name
-        .toLowerCase()
-        .includes(value)
-
-      ||
-
-      product.category
-        .toLowerCase()
-        .includes(value)
-
-      ||
-
-      product.categoryLabel
-        .toLowerCase()
-        .includes(value)
-
-    );
-
-
-  if (results.length === 0) {
-
-    searchResults.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:30px 0;
-        opacity:.5;
-      ">
-        NO PRODUCTS FOUND.
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  searchResults.innerHTML =
-    results
-      .map(createProductCard)
-      .join("");
-
-}
-
-
-/* =========================================================
-   SEARCH INPUT EVENT
-========================================================= */
-
-if (searchInput) {
-
-  searchInput.addEventListener(
-    "input",
-    function () {
-      searchProducts(this.value);
-    }
-  );
-
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMobileMenu() {
-
-  mobileMenu.classList.toggle("open");
-
-}
-
-
-function closeMobileMenu() {
-
-  mobileMenu.classList.remove("open");
-
-}
-
-
-/* =========================================================
-   SCROLL TO SHOP
-========================================================= */
-
-function scrollToShop() {
-
-  const shop =
-    document.getElementById("shop");
-
-  if (!shop) return;
-
-  shop.scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================================================
-   NEWSLETTER
-========================================================= */
-
-const newsletterForm =
-  document.getElementById("newsletterForm");
-
-
-if (newsletterForm) {
-
-  newsletterForm.addEventListener(
-    "submit",
-    function (event) {
-
-      event.preventDefault();
-
-      const email =
-        d
+   PRODUCT
