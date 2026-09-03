@@ -1,259 +1,86 @@
 /* =========================================================
    ZYVON — SCRIPT.JS
-   Complete E-Commerce Functionality
-   20 Products • Cart • Search • Filters • Modal
-========================================================= */
-
-
-/* =========================================================
-   PRODUCT DATA
+   Complete replacement
+   Product images + filters + search + cart + modal
 ========================================================= */
 
 const products = [
-
-  /* =========================
-     TEES
-  ========================= */
-
   {
     id: 1,
-    name: "Free Will Oversized Tee",
+    name: "Essential Black Tee",
     category: "tees",
-    categoryLabel: "TEES",
-    price: 799,
-    image: "https://i.ibb.co/Y7gPznnb/DSC-5073-1.jpg",
-    description: "A clean oversized streetwear tee with a modern silhouette."
+    price: 699,
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+    description: "A clean everyday streetwear essential."
   },
-
   {
     id: 2,
-    name: "Free Will Graphic Tee",
+    name: "Urban White Tee",
     category: "tees",
-    categoryLabel: "TEES",
-    price: 799,
-    image: "https://i.ibb.co/qL53tMbR/hiyest-freewill-or-destiny-oversized-black-t-shirt-frontprint-960x1200-jpg.webp",
-    description: "Statement graphic design with a relaxed streetwear fit."
+    price: 699,
+    image:
+      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
+    description: "Minimal design with a modern streetwear feel."
   },
-
   {
     id: 3,
-    name: "Minimal Graphic Tee",
-    category: "tees",
-    categoryLabel: "TEES",
-    price: 749,
-    image: "https://i.ibb.co/HTSm2znJ/75715204-2e04-423f-ba8b-051961831a0f.webp",
-    description: "Minimal graphic detailing with an everyday premium fit."
+    name: "Oversized Street Tee",
+    category: "oversized",
+    price: 799,
+    image:
+      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
+    description: "Relaxed oversized fit built for everyday wear."
   },
-
   {
     id: 4,
-    name: "Heavy Faded Tee",
-    category: "tees",
-    categoryLabel: "TEES",
-    price: 849,
-    image: "https://i.ibb.co/tpSXgK2g/5082-HEAVY-FADED-TEE-FADED-BLACK.png",
-    description: "Heavyweight faded finish designed for a modern streetwear look."
+    name: "Classic Oversized",
+    category: "oversized",
+    price: 799,
+    image:
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
+    description: "A simple oversized silhouette with a premium look."
   },
-
   {
     id: 5,
-    name: "Sunlit Essential Tee",
-    category: "tees",
-    categoryLabel: "TEES",
-    price: 699,
-    image: "https://i.ibb.co/qF71LK6H/sunlit-hanging-t-shirt-mockup-soft-shadows-on-textured-wall-minimalist-and-natural-aesthetic-0741-8.jpg",
-    description: "Minimal everyday tee with a clean and versatile aesthetic."
+    name: "ZYVON Heavy Hoodie",
+    category: "hoodies",
+    price: 1299,
+    image:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+    description: "Heavyweight hoodie designed for a bold streetwear look."
   },
-
-
-  /* =========================
-     OVERSIZED
-  ========================= */
-
   {
     id: 6,
-    name: "Washed Black Oversized Tee",
-    category: "oversized",
-    categoryLabel: "OVERSIZED",
-    price: 899,
-    image: "https://i.ibb.co/Z6KZYb58/pexels-bandar-baant-2160637741-37482328.jpg",
-    description: "Relaxed heavyweight oversized silhouette with a washed finish."
+    name: "Minimal Hoodie",
+    category: "hoodies",
+    price: 1199,
+    image:
+      "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=900&q=85",
+    description: "Clean minimal hoodie for everyday styling."
   },
-
   {
     id: 7,
-    name: "Urban Oversized Tee",
-    category: "oversized",
-    categoryLabel: "OVERSIZED",
-    price: 899,
-    image: "https://i.ibb.co/gb22DmMK/pexels-bandar-baant-2160637741-36986582.jpg",
-    description: "Modern oversized streetwear fit built for everyday wear."
+    name: "Streetwear Cap",
+    category: "accessories",
+    price: 499,
+    image:
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
+    description: "Minimal embroidered-style streetwear cap."
   },
-
   {
     id: 8,
-    name: "Editorial Oversized Tee",
-    category: "oversized",
-    categoryLabel: "OVERSIZED",
-    price: 949,
-    image: "https://i.ibb.co/Jjh45vff/pexels-bandar-baant-2160637741-36942018.jpg",
-    description: "Bold oversized proportions with a contemporary editorial feel."
-  },
-
-  {
-    id: 9,
-    name: "Tonal Thrash Boxy Tee",
-    category: "oversized",
-    categoryLabel: "OVERSIZED",
-    price: 949,
-    image: "https://i.ibb.co/yFk2y8Rz/tonal-thrash-boxy-tee-s.png",
-    description: "Boxy heavyweight tee with tonal graphic detailing."
-  },
-
-  {
-    id: 10,
-    name: "Archive Oversized Tee",
-    category: "oversized",
-    categoryLabel: "OVERSIZED",
-    price: 899,
-    image: "https://i.ibb.co/fzgHHLNV/ben-iwara-3-QIjn-DIcxu-M-unsplash.jpg",
-    description: "Relaxed archive-inspired oversized streetwear silhouette."
-  },
-
-
-  /* =========================
-     HOODIES
-  ========================= */
-
-  {
-    id: 11,
-    name: "Essential Black Hoodie",
-    category: "hoodies",
-    categoryLabel: "HOODIES",
-    price: 1299,
-    image: "https://i.ibb.co/4w6FdZPr/pexels-airamdphoto-9649527.jpg",
-    description: "Clean oversized hoodie built around a timeless black silhouette."
-  },
-
-  {
-    id: 12,
-    name: "Heavyweight Street Hoodie",
-    category: "hoodies",
-    categoryLabel: "HOODIES",
-    price: 1399,
-    image: "https://i.ibb.co/HTMF7bJW/josh-marty-D-oceq6l5h-M-unsplash.jpg",
-    description: "Heavyweight streetwear hoodie with a relaxed premium fit."
-  },
-
-  {
-    id: 13,
-    name: "Urban Graphic Hoodie",
-    category: "hoodies",
-    categoryLabel: "HOODIES",
-    price: 1399,
-    image: "https://i.ibb.co/MyY3BHHB/pexels-ana-maria-arroyave-1851916642-28701959.jpg",
-    description: "Modern graphic hoodie designed for an understated street look."
-  },
-
-  {
-    id: 14,
-    name: "Minimal Grey Hoodie",
-    category: "hoodies",
-    categoryLabel: "HOODIES",
-    price: 1299,
-    image: "https://i.ibb.co/ZRhv4nyW/michael-kyule-Nq-j-FJtq-Gu-Y-unsplash.jpg",
-    description: "Minimal hoodie with a relaxed silhouette and clean finish."
-  },
-
-  {
-    id: 15,
-    name: "Archive Hoodie",
-    category: "hoodies",
-    categoryLabel: "HOODIES",
-    price: 1499,
-    image: "https://i.ibb.co/V0T4W5KZ/actions-b24ec891-4e9c-4ea8-bd95-66b8b6bd9f4d.jpg",
-    description: "Archive-inspired hoodie with a distinctive streetwear aesthetic."
-  },
-
-
-  /* =========================
-     ACCESSORIES
-  ========================= */
-
-  {
-    id: 16,
-    name: "Canvas Graphic Tote",
+    name: "Classic Tote Bag",
     category: "accessories",
-    categoryLabel: "ACCESSORIES",
-    price: 599,
-    image: "https://i.ibb.co/NPwbjyb/1515373-carhartt-wip-canvas-graphic-tote-bag-label-script-print-black.jpg",
-    description: "Structured black canvas tote designed for everyday carry."
-  },
-
-  {
-    id: 17,
-    name: "Minimal Street Tote",
-    category: "accessories",
-    categoryLabel: "ACCESSORIES",
-    price: 599,
-    image: "https://i.ibb.co/d4D1fCxN/871dff03-ccb0-45a1-92e0-ed530a8b08f8.png",
-    description: "Simple black tote with a clean minimalist aesthetic."
-  },
-
-  {
-    id: 18,
-    name: "Graphic Canvas Tote",
-    category: "accessories",
-    categoryLabel: "ACCESSORIES",
-    price: 649,
-    image: "https://i.ibb.co/spdJk8VX/1a13b80dbd0e9f943911a69f6fc89a66c33ee246-Janosch-Presents-32-Posting-3-a9dfd837-5787-47fe-9205-57d63.jpg",
-    description: "Graphic canvas tote with a distinctive contemporary look."
-  },
-
-  {
-    id: 19,
-    name: "Black Everyday Tote",
-    category: "accessories",
-    categoryLabel: "ACCESSORIES",
-    price: 549,
-    image: "https://i.ibb.co/ZkQ6BSX/5c311613b196db5ce1ea5c328ae7b37e.jpg",
-    description: "Minimal everyday tote designed for a clean streetwear wardrobe."
-  },
-
-  {
-    id: 20,
-    name: "Oversized Black Tote",
-    category: "accessories",
-    categoryLabel: "ACCESSORIES",
-    price: 699,
-    image: "https://i.ibb.co/XZq21dHY/1-R-Everyday-Oversized-Tote-Black.jpg",
-    description: "Large-format black tote with a practical everyday silhouette."
+    price: 399,
+    image:
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
+    description: "Simple everyday tote with a clean streetwear aesthetic."
   }
-
 ];
 
-
 /* =========================================================
-   STATE
-========================================================= */
-
-let cart = [];
-
-try {
-  cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
-  if (!Array.isArray(cart)) cart = [];
-} catch (error) {
-  cart = [];
-}
-
-let selectedProduct = null;
-let selectedSize = null;
-let activeCategory = "all";
-let currentProducts = [...products];
-
-
-/* =========================================================
-   DOM ELEMENTS
+   ELEMENTS
 ========================================================= */
 
 const productGrid = document.getElementById("productGrid");
@@ -261,53 +88,499 @@ const newProducts = document.getElementById("newProducts");
 
 const productModal = document.getElementById("productModal");
 const modalImage = document.getElementById("modalImage");
-const modalCategory = document.getElementById("modalCategory");
 const modalName = document.getElementById("modalName");
+const modalCategory = document.getElementById("modalCategory");
 const modalPrice = document.getElementById("modalPrice");
 const modalDescription = document.getElementById("modalDescription");
 
-const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
+const cartDrawer = document.getElementById("cartDrawer");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
-const cartCount = document.getElementById("cartCount");
+
+const toast = document.getElementById("toast");
 
 const searchOverlay = document.getElementById("searchOverlay");
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
-const mobileMenu = document.getElementById("mobileMenu");
-const toast = document.getElementById("toast");
+/* =========================================================
+   CART
+========================================================= */
 
-const newsletterForm =
-  document.getElementById("newsletterForm");
+let cart = JSON.parse(localStorage.getItem("zyvonCart")) || [];
 
+function saveCart() {
+  localStorage.setItem("zyvonCart", JSON.stringify(cart));
+}
 
 /* =========================================================
-   PRICE FORMAT
+   FORMAT PRICE
 ========================================================= */
 
 function formatPrice(price) {
-  return "₹" + Number(price).toLocaleString("en-IN");
+  return `₹${price.toLocaleString("en-IN")}`;
 }
 
-
 /* =========================================================
-   IMAGE FALLBACK
+   PRODUCT CARD
 ========================================================= */
 
-function handleImageError(img) {
+function createProductCard(product) {
+  return `
+    <article class="product-card" data-id="${product.id}">
+      <div class="product-image">
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='https://placehold.co/900x1100/f1f1f1/111111?text=ZYVON';"
+        >
 
-  if (!img) return;
+        <button
+          class="product-view"
+          onclick="openProduct(${product.id})"
+          aria-label="View ${product.name}"
+        >
+          VIEW
+        </button>
+      </div>
 
-  img.onerror = null;
-
-  img.src =
-    "https://i.ibb.co/Y7gPznnb/DSC-5073-1.jpg";
-
-  img.style.objectFit = "cover";
+      <div class="product-info">
+        <span class="product-category">${product.category}</span>
+        <h3>${product.name}</h3>
+        <p>${formatPrice(product.price)}</p>
+      </div>
+    </article>
+  `;
 }
 
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts(list = products) {
+  if (!productGrid) return;
+
+  productGrid.innerHTML = list.map(createProductCard).join("");
+}
 
 /* =========================================================
-   PRODUCT
+   NEW ARRIVALS
+========================================================= */
+
+function renderNewArrivals() {
+  if (!newProducts) return;
+
+  const latest = products.slice(0, 4);
+
+  newProducts.innerHTML = latest.map(createProductCard).join("");
+}
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+function setupFilters() {
+  const filterButtons = document.querySelectorAll("[data-filter]");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      if (filter === "all") {
+        renderProducts(products);
+      } else {
+        const filtered = products.filter(
+          product => product.category === filter
+        );
+
+        renderProducts(filtered);
+      }
+    });
+  });
+}
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProduct(id) {
+  const product = products.find(item => item.id === id);
+
+  if (!product || !productModal) return;
+
+  if (modalImage) {
+    modalImage.src = product.image;
+    modalImage.alt = product.name;
+
+    modalImage.onerror = function () {
+      this.onerror = null;
+      this.src =
+        "https://placehold.co/900x1100/f1f1f1/111111?text=ZYVON";
+    };
+  }
+
+  if (modalName) modalName.textContent = product.name;
+  if (modalCategory) modalCategory.textContent = product.category;
+  if (modalPrice) modalPrice.textContent = formatPrice(product.price);
+  if (modalDescription) modalDescription.textContent = product.description;
+
+  productModal.classList.add("active");
+  document.body.classList.add("modal-open");
+
+  productModal.dataset.productId = product.id;
+}
+
+function closeProduct() {
+  if (!productModal) return;
+
+  productModal.classList.remove("active");
+  document.body.classList.remove("modal-open");
+}
+
+window.openProduct = openProduct;
+window.closeProduct = closeProduct;
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+document.addEventListener("click", event => {
+  if (!productModal) return;
+
+  if (
+    event.target.matches("[data-close-modal]") ||
+    event.target === productModal
+  ) {
+    closeProduct();
+  }
+});
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(id) {
+  const product = products.find(item => item.id === id);
+
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1
+    });
+  }
+
+  saveCart();
+  renderCart();
+  showToast(`${product.name} added to cart`);
+
+  closeProduct();
+}
+
+/* =========================================================
+   MODAL ADD BUTTON
+========================================================= */
+
+document.addEventListener("click", event => {
+  const button = event.target.closest("[data-add-cart]");
+
+  if (!button) return;
+
+  const id = Number(productModal?.dataset.productId);
+
+  if (id) {
+    addToCart(id);
+  }
+});
+
+/* =========================================================
+   CART RENDER
+========================================================= */
+
+function renderCart() {
+  if (!cartItems || !cartTotal) return;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        <p>Your cart is empty.</p>
+      </div>
+    `;
+
+    cartTotal.textContent = "₹0";
+    updateCartCount();
+    return;
+  }
+
+  cartItems.innerHTML = cart
+    .map(item => {
+      return `
+        <div class="cart-item">
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            onerror="this.onerror=null;this.src='https://placehold.co/200x250/f1f1f1/111111?text=ZYVON';"
+          >
+
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <p>${formatPrice(item.price)}</p>
+
+            <div class="cart-controls">
+              <button onclick="changeQuantity(${item.id}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${item.id}, 1)">+</button>
+            </div>
+          </div>
+
+          <button
+            class="cart-remove"
+            onclick="removeFromCart(${item.id})"
+            aria-label="Remove ${item.name}"
+          >
+            ×
+          </button>
+
+        </div>
+      `;
+    })
+    .join("");
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  cartTotal.textContent = formatPrice(total);
+
+  updateCartCount();
+}
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQuantity(id, amount) {
+  const item = cart.find(product => product.id === id);
+
+  if (!item) return;
+
+  item.quantity += amount;
+
+  if (item.quantity <= 0) {
+    cart = cart.filter(product => product.id !== id);
+  }
+
+  saveCart();
+  renderCart();
+}
+
+window.changeQuantity = changeQuantity;
+
+/* =========================================================
+   REMOVE CART ITEM
+========================================================= */
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+
+  saveCart();
+  renderCart();
+}
+
+window.removeFromCart = removeFromCart;
+
+/* =========================================================
+   CART COUNT
+========================================================= */
+
+function updateCartCount() {
+  const count = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  document.querySelectorAll(".cart-count").forEach(element => {
+    element.textContent = count;
+    element.style.display = count > 0 ? "flex" : "none";
+  });
+}
+
+/* =========================================================
+   OPEN / CLOSE CART
+========================================================= */
+
+function openCart() {
+  if (!cartOverlay) return;
+
+  cartOverlay.classList.add("active");
+  document.body.classList.add("cart-open");
+
+  renderCart();
+}
+
+function closeCart() {
+  if (!cartOverlay) return;
+
+  cartOverlay.classList.remove("active");
+  document.body.classList.remove("cart-open");
+}
+
+window.openCart = openCart;
+window.closeCart = closeCart;
+
+/* =========================================================
+   CART BUTTONS
+========================================================= */
+
+document.addEventListener("click", event => {
+  const cartButton = event.target.closest(
+    "#cartButton, .cart-button, [data-cart]"
+  );
+
+  if (cartButton) {
+    openCart();
+  }
+
+  const closeButton = event.target.closest(
+    "#closeCart, [data-close-cart]"
+  );
+
+  if (closeButton) {
+    closeCart();
+  }
+
+  if (event.target === cartOverlay) {
+    closeCart();
+  }
+});
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function openSearch() {
+  if (!searchOverlay) return;
+
+  searchOverlay.classList.add("active");
+
+  setTimeout(() => {
+    searchInput?.focus();
+  }, 100);
+}
+
+function closeSearch() {
+  if (!searchOverlay) return;
+
+  searchOverlay.classList.remove("active");
+
+  if (searchInput) {
+    searchInput.value = "";
+  }
+
+  if (searchResults) {
+    searchResults.innerHTML = "";
+  }
+}
+
+window.openSearch = openSearch;
+window.closeSearch = closeSearch;
+
+/* =========================================================
+   SEARCH RESULTS
+========================================================= */
+
+function searchProducts(query) {
+  const text = query.trim().toLowerCase();
+
+  if (!searchResults) return;
+
+  if (!text) {
+    searchResults.innerHTML = "";
+    return;
+  }
+
+  const results = products.filter(product => {
+    return (
+      product.name.toLowerCase().includes(text) ||
+      product.category.toLowerCase().includes(text)
+    );
+  });
+
+  if (results.length === 0) {
+    searchResults.innerHTML = `
+      <div class="search-empty">
+        No products found.
+      </div>
+    `;
+    return;
+  }
+
+  searchResults.innerHTML = results
+    .map(product => {
+      return `
+        <button
+          class="search-result"
+          onclick="openProduct(${product.id}); closeSearch();"
+        >
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+            onerror="this.onerror=null;this.src='https://placehold.co/120x150/f1f1f1/111111?text=ZYVON';"
+          >
+
+          <span>
+            <strong>${product.name}</strong>
+            <small>${formatPrice(product.price)}</small>
+          </span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", event => {
+    searchProducts(event.target.value);
+  });
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add("active");
+
+  clearTimeout(window.zyvonToastTimer);
+
+  window.zyvonToastTimer = setTimeout(() => {
+    toast.classList.remove("active");
+  }, 2500);
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function toggleMobileMenu() {
+  if (!mobileMenu) return;
+
+  mobileMenu.classList.toggle("active
